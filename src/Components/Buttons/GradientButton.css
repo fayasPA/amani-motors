@@ -1,0 +1,101 @@
+/* .gradient-button {
+    @apply relative inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white transition-all duration-300 ease-in-out;
+    background-color: #1a1a2e;
+    color: #fff;
+  }
+  
+  .gradient-button::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #6a00ff, #ff007b, #6a00ff);
+    z-index: -1;
+    opacity: 0;
+    border-radius: 0.375rem;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .gradient-button:hover::before {
+    opacity: 1;
+  } */
+
+/*   .gradient-button {
+    @apply relative inline-flex items-center justify-center px-6 py-3 border border-transparent text-lg font-medium rounded-md text-white transition-all duration-300 ease-in-out;
+    background-color: #0f172a;
+    color: #fff;
+    border: 2px solid transparent;
+  }
+ */
+  .gradient-button {
+    @apply relative inline-flex items-center justify-center px-4 py-2 border border-transparent 
+    text-sm font-medium rounded-md text-white transition-all duration-300 ease-in-out;
+    background-color: none;
+    color: #fff;
+  }
+  
+  .gradient-button::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg,#ff007b, #6a00ff);
+    border-radius: 0.375rem;
+    transition: opacity 0.3s ease-in-out;
+    filter: blur(100px);
+    opacity: 0;
+  }
+  
+  .gradient-button:hover::before {
+    opacity: 1;
+  }
+  
+  .gradient-button:hover {
+    border-color: transparent;
+    scale: 110%;
+    background: linear-gradient(45deg, #820742, #6a00ff);
+    background-clip: text;
+    color: transparent;
+  }
+
+
+  .gradient-button1:hover::before {
+    opacity: 1;
+  }
+  
+  .gradient-button1:hover {
+    border-color: transparent;
+    scale: 110%;
+    background: linear-gradient(45deg, #820742, #6a00ff);
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gradient-button1::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg,#ff007b, #6a00ff);
+    border-radius: 0.375rem;
+    transition: opacity 0.3s ease-in-out;
+    filter: blur(100px);
+    opacity: 0;
+  }
+  .gradient-button1 {
+    @apply relative inline-flex items-center justify-center px-4 py-2 border border-transparent 
+    text-sm font-medium rounded-md text-white transition-all duration-300 ease-in-out;
+    background-color: none;
+    color: #fff;
+    border-color: transparent;
+    scale: 110%;
+    background: linear-gradient(45deg, #820742, #6a00ff);
+    background-clip: text;
+    color: transparent;
+  }

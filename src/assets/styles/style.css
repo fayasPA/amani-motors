@@ -1,0 +1,14 @@
+#range-slider-component {
+    background-color: white;
+}
+#range-slider-component .range-slider__range {
+    background: black;
+    transition: height 0.3s;
+  }
+
+  #range-slider-component .range-slider__thumb {
+    border: 6px solid rgb(184, 180, 180);
+    box-sizing: border-box;
+    background: black;
+  }
+  

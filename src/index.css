@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: black;
+  color: white;
+  font: pacifico;
+}
+/* body {
+  background: linear-gradient(to bottom, black, gray);
+  color: aliceblue;
+} */
+.jersey-20-regular {
+  font-family: "Jersey 20", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.input {
+  @apply w-full p-2 text-black border border-gray-300 rounded;
+}
+
+.btn {
+  @apply  bg-blue  text-white  px-4 py-2 rounded /* hover:bg-blue-600 */;
+}
+
+.step {
+  @apply text-white;
+}
+
+.step.active {
+  @apply  text-blue  font-semibold;
+}
