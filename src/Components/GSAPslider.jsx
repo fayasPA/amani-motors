@@ -14,23 +14,6 @@ gsap.registerPlugin(ScrollTrigger);
 function GSAPslider() {
   const axiosInstance = axiosAPI();
 
-  const Imagearr = [img1, img2, img3, img4, img5];
-  const PriceArr = ["₹5000000", "₹6000000", "₹7000000", "₹8000000", "₹9000000"];
-  const ModelArr = [
-    "Model :2018",
-    "Model :2022",
-    "Model :2020",
-    "Model :2020",
-    "Model :2021",
-  ];
-
-  const Namearr = [
-    "LAMBORGINI",
-    "PORCHE",
-    "LAMBORGINI URUS",
-    "BENZ",
-    "CHEVERLOTE",
-  ];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [bannerData, setBannerData] = useState([]);
 
@@ -45,7 +28,7 @@ function GSAPslider() {
         setCurrentIndex(0)
       }
     } catch (error) {
-      console.log("---------BANNER_ERROR",error);
+      console.log("---------BANNER_ERROR", error);
     }
   }
 
@@ -59,7 +42,7 @@ function GSAPslider() {
   }, []);
 
   useEffect(() => {
-    if(bannerData.length > 0){
+    if (bannerData.length > 0) {
       gsap.fromTo(
         `.car-${currentIndex}`,
         {
@@ -116,7 +99,7 @@ function GSAPslider() {
           },
         }
       );
-  
+
       // gsap.fromTo(
       //   `.price-${currentIndex}`,
       //   {
@@ -145,7 +128,7 @@ function GSAPslider() {
       //     },
       //   }
       // );
-  
+
       // gsap.fromTo(
       //   `.model-${currentIndex}`,
       //   {
@@ -189,28 +172,28 @@ function GSAPslider() {
               className={`w-1/2 h-full  flex justify-center items-center `}
             >
               <div className={` h-auto w-auto pl-5 name-${index} `}>
-              <p className="text-white text-xl md:text-3xl font-extrabold name">
-                {banner.model}
-              </p>
-              <p className="text-slate-500 text-xs md:text-sm font-medium price">
-                {banner.variant}
-              </p>
-              <p className="text-slate-500 text-sm md:text-lg font-bold price">
-              ₹{banner.price}
-              </p>
+                <p className="text-white text-xl md:text-3xl font-extrabold name">
+                  {banner.model}
+                </p>
+                <p className="text-slate-500 text-xs md:text-sm font-medium price">
+                  {banner.variant}
+                </p>
+                <p className="text-slate-500 text-sm md:text-lg font-bold price">
+                  ₹{banner.price}
+                </p>
               </div>
-              
+
             </div>
 
             <div
               className={` w-1/2 h-full  flex justify-start items-center`}
             >
               <div className={` w-auto h-auto car-${index}`}>
-              <img
-                className={`w-full h-auto `}
-                src={`${BASE_IMAGE_URL}${banner.bannerImage}`}
-                alt={banner.model}
-              />
+                <img
+                  className={`w-full h-auto `}
+                  src={`${BASE_IMAGE_URL}${banner.bannerImage}`}
+                  alt={banner.model}
+                />
               </div>
             </div>
           </div>

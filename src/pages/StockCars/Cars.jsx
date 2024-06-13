@@ -1,12 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import CarCards from "../../Components/CarCards";
 import { Latest_Products } from "../../Components/Data";
 import { Link } from "react-router-dom";
+import { axiosAPI } from "../../utils/axiosAPI";
+import { GET_ALL_VEHICLES } from "../../utils/urls";
 
 const Cars = () => {
+  const axiosInstance = axiosAPI();
+  const [data, setData] = useState([]);
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+
+  useEffect(() => {
+    get_all_vehicles();
+  }, []);
+  async function get_all_vehicles() {
+    try {
+      const response = await axiosInstance.get(GET_ALL_VEHICLES);
+      console.log('******STOCK', response)
+      if (response.status === 200) {
+        // setData(response.data.carDetails);
+      }
+    } catch (error) {
+      console.log("---------BANNER_ERROR", error);
+    }
+  }
+
   return (
     <div className="flex-1 ">
       <div className="relative h-80">
