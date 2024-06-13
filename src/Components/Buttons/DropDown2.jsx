@@ -17,7 +17,8 @@ const DropdownButton = ({ options, type=null }) => {
   return (
     <select className='focus:outline-none focus:ring-1 focus:ring-black border border-gray-300 bg-white px-2 py-1 text-xs text-gray-700'
      name="" id=""
-     value={selectedOption}
+     defaultValue={""}
+    //  value={selectedOption}
      onChange={handleOptionClick} >
       <option value="" selected>{dropDownPlaceholder}</option>
       {options.map((option, index) => (
