@@ -39,7 +39,7 @@ function CarCards() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
         {data.map((product, index) => (
           <div key={index} className=" p-4 rounded-lg shadow-lg">
-            <img src={`${BASE_IMAGE_URL}${product.image}`} alt={product.image} className="w-full h-48 object-cover rounded-md mb-4" />
+            <img src={`${BASE_IMAGE_URL}${product.image}`} alt={product.image} className="w-full h-48 object-cover rounded-md mb-4 transform transition-transform duration-300 hover:scale-105" />
             <div className="text-center font-bold text-lg mb-2">{product.brand} {product.model}</div>
             <div className="flex justify-between items-center text-sm text-gray-700 mb-2">
               <div className="flex items-center gap-2 justify-center">
@@ -63,7 +63,7 @@ function CarCards() {
           </div>
         ))}
       </div>
-      <Link to={'/about'} className='w-full flex items-center justify-end pt-5 pr-3 font-semibold'>
+      <Link to={'/vehicles'} className='w-full flex items-center justify-end pt-5 pr-3 font-semibold'>
         <p className='text-gray-500 text-xs'>View More Cars</p>
         <FaChevronRight size={10} className='text-gray-500 ' />
       </Link>

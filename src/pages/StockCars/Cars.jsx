@@ -23,7 +23,6 @@ const Cars = () => {
   async function get_all_vehicles() {
     try {
       const response = await axiosInstance.get(GET_ALL_VEHICLES);
-      console.log('******STOCK', response.data.vehicles)
       if (response.status === 200) {
         setData(response.data.vehicles);
       }
@@ -52,7 +51,7 @@ const Cars = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
         {data.map((product, index) => (
           <div key={index} className=" p-4 rounded-lg shadow-lg">
-            <img src={`${BASE_IMAGE_URL}${product.image}`} alt={product.image} className="w-full h-48 object-cover rounded-md mb-4" />
+            <img src={`${BASE_IMAGE_URL}${product.image}`} alt={product.image} className="w-full h-48 object-cover rounded-md mb-4 transform transition-transform duration-300 hover:scale-105" />
             <div className="text-center font-bold text-lg mb-2">{product.brand} {product.model}</div>
             <div className="flex justify-between items-center text-sm text-gray-700 mb-2">
               <div className="flex items-center gap-2 justify-center">

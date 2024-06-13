@@ -9,6 +9,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { axiosAPI } from "../utils/axiosAPI";
 import { BASE_IMAGE_URL, GET_BANNER_VEHICLES } from "../utils/urls";
+import { Link } from "react-router-dom";
+import { getNumberToCurrencyText } from "../utils/helperFunctions";
 gsap.registerPlugin(ScrollTrigger);
 
 function GSAPslider() {
@@ -173,14 +175,18 @@ function GSAPslider() {
             >
               <div className={` h-auto w-auto pl-5 name-${index} `}>
                 <p className="text-white text-xl md:text-3xl font-extrabold name">
-                  {banner.model}
+                  {banner.model} {banner.variant}
                 </p>
-                <p className="text-slate-500 text-xs md:text-sm font-medium price">
-                  {banner.variant}
+                <p className="text-slate-500 text-xs md:text-sm font-semibold font-serif price">
+                  MODEL 2020
                 </p>
-                <p className="text-slate-500 text-sm md:text-lg font-bold price">
-                  ₹{banner.price}
+                <p className="text-slate-500 text-xs md:text-sm font-bold price">
+                {getNumberToCurrencyText(banner.price)}
                 </p>
+                <Link to={`/products/${banner.id}`} >
+              <button className="bg-gradient-to-r from-gray-800  to-gray text-white font-semibold py-2 px-4 rounded w-full">BANNER.ID</button>
+              {/* <button className="bg-gradient-to-r from-gray-800  to-gray text-white font-semibold px-4 rounded-sm w-full text-xs md:text-sm">See Details</button> */}
+            </Link>
               </div>
 
             </div>

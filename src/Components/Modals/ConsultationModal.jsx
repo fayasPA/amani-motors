@@ -109,7 +109,7 @@ const ConsultationModal = () => {
                   <button
                     id="animated-button"
                     type="submit"
-                    className="w-full px-3 py-2 text-white rounded-lg"
+                    className="w-full px-3 py-2 font-semibold text-white rounded-lg"
                     style={{
                       background: 'linear-gradient(to right, #b49f8c, #F7EF8A, #D2AC47, #EDC967)',
                       backgroundSize: '200% 200%',

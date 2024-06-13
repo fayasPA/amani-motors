@@ -12,6 +12,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 function Footer() {
+  const phoneNumber = "+919037696969"
+  const email = "info@amanimotors.in"
+
   useEffect(() => {
     gsap.fromTo(
       ".footer",
@@ -47,16 +50,20 @@ function Footer() {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Contact Information */}
         <div>
-          <h2 className="text-lg font-bold mb-4 footer">Amani Motors</h2>
+          <h2 className="italic text-lg font-bold mb-4 footer">AMANI MOTORS</h2>
           <p className="footer">
-          Pipeline Rd, near AKSHAYA CENTER, Karimakkad, Thrikkakara, Edappally, Ernakulam, Kochi, Kerala 682021
+            Pipeline Rd, near AKSHAYA CENTER, Karimakkad, Thrikkakara, Edappally, Ernakulam, Kochi, Kerala 682021
           </p>
-          <p className="flex items-center mt-4 footer">
-            <FaPhone className="mr-2" /> +91 9037696969
-          </p>
-          <p className="flex items-center mt-2 footer">
-            <FaEnvelope className="mr-2" />info@amanimotors.in
-          </p>
+          <a href={`tel:${phoneNumber}`}>
+            <p className="flex items-center mt-4 footer">
+              <FaPhone className="mr-2" /> +91 9037696969
+            </p>
+          </a>
+          <a href={`mailto:${email}`}>
+            <p className="flex items-center mt-2 footer">
+              <FaEnvelope className="mr-2" />info@amanimotors.in
+            </p>
+          </a>
         </div>
 
         {/* Information Links */}
