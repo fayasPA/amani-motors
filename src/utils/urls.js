@@ -21,3 +21,4 @@ export const { BASE_URL, BASE_IMAGE_URL } = urls;
 export const GET_BANNER_VEHICLES = 'get_banner_vehicles';
 export const GET_LATEST_VEHICLES = 'get_all_vehicles_homepage';
 export const GET_ALL_VEHICLES = 'get_stockcar_all';
+export const GET_VEHICLE_DETAILS = 'get_specific_vehicle';

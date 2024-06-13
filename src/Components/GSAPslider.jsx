@@ -35,11 +35,11 @@ function GSAPslider() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % Imagearr.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % bannerData.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [bannerData]);
 
   useEffect(() => {
     if (bannerData.length > 0) {

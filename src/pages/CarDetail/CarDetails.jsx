@@ -1,9 +1,32 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { GET_VEHICLE_DETAILS } from '../../utils/urls';
+import { useParams } from 'react-router-dom';
+import { axiosAPI } from '../../utils/axiosAPI';
 
 const CarDetails = () => {
-    useEffect(() => {
+  const [data, setData] = useState([]);
+  const [images, setImages] = useState([]);
+  const axiosInstance = axiosAPI();
+  let { carId } = useParams();
+
+  useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
+
+    useEffect(() => {
+        get_banner_data();
+      }, []);
+      async function get_banner_data() {
+        try {
+          const response = await axiosInstance.get(`${GET_VEHICLE_DETAILS}/${carId}`);
+          console.log("*******WORKED", response.data.vehicle.images);
+          if (response.status === 200) {
+            setData(response.data.carDetails);
+          }
+        } catch (error) {
+          console.log("---------BANNER_ERROR", error);
+        }
+      }
     return (
         <div className='bg-white'>
             <header
