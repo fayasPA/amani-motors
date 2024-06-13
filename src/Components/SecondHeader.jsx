@@ -70,7 +70,7 @@ function SecondHeader() {
           <span className="text-xs">HOME</span>
         </NavLink>
         <NavLink
-          to="/products"
+          to="/vehicles"
           className={({ isActive }) =>
             `${isActive ? 'bg-gray-200 text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-gray-200 flex flex-col justify-center items-center`
           }

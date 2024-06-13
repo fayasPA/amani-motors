@@ -24,11 +24,11 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
         <Route path="" element={<Home />} />
-        {/* <Route path="products" >
+        <Route path="vehicles" >
           <Route path="" element={<Cars />} />
           <Route path=":carId" element={<CarDetails />} />
         </Route>
-        <Route path="about" element={<About />} />
+        {/* <Route path="about" element={<About />} />
         <Route path="sellcar" element={<SellCar />} /> */}
       </Route>
     )

@@ -77,7 +77,7 @@ export default function Navbar() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 ">
         <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse ">
           <img src={Logo} className="w-20 rounded-xl logo " alt=" Logo" />
-          <span className="italic font-pacifico logo self-center text-2xl font-semibold whitespace-nowrap dark:text-gray-400">AMANI MOTORS</span>
+          <span className="italic font-pacifico logo self-center text-lg md:text-2xl font-semibold whitespace-nowrap dark:text-gray-400">AMANI MOTORS</span>
         </Link>
 
         <div className=" hidden md:block logo">

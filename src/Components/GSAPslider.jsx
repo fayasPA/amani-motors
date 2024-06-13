@@ -42,6 +42,7 @@ function GSAPslider() {
       const response = await axiosInstance.get(GET_BANNER_VEHICLES);
       if (response.status === 200) {
         setBannerData(response.data.carDetails);
+        setCurrentIndex(0)
       }
     } catch (error) {
       console.log("---------BANNER_ERROR",error);
@@ -62,16 +63,16 @@ function GSAPslider() {
       gsap.fromTo(
         `.car-${currentIndex}`,
         {
-          x: 500,
-          y: 400,
+          x: 100,
+          y: -100,
           borderRadius: "0%",
           yoyo: false,
           rotation: 0,
           opacity: 0,
         },
         {
-          x: -150,
-          y: -100,
+          x: 0,
+          y: 0,
           repeat: 0,
           yoyo: false,
           rotation: 0,
@@ -80,7 +81,7 @@ function GSAPslider() {
           ease: "none",
           stagger: 0.5,
           opacity: 1,
-          scale: 2,
+          // scale: 2,
           scrollTrigger: {
             trigger: `.car-${currentIndex}`,
             toggleActions: "restart none none none ",
@@ -90,7 +91,7 @@ function GSAPslider() {
       gsap.fromTo(
         `.name-${currentIndex}`,
         {
-          x: -100,
+          x: -200,
           y: -200,
           borderRadius: "0%",
           yoyo: false,
@@ -98,8 +99,8 @@ function GSAPslider() {
           opacity: 0,
         },
         {
-          x: 100,
-          y: -100,
+          x: 0,
+          y: 0,
           repeat: 0,
           yoyo: false,
           rotation: 0,
@@ -177,18 +178,17 @@ function GSAPslider() {
   }, [currentIndex, bannerData]);
 
   return (
-    <div className="relative w-full h-screen bg-custom-background bg-cover bg-center">
+    <div className="relative w-full h-80 md:h-screen bg-custom-background bg-cover bg-center">
       {/* Overlay for transparency */}
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       {/* Ensure children are above the overlay */}
       <div className="flex justify-between w-full h-full overflow-hidden">
         {bannerData.map((banner, index) => (
-          <React.Fragment key={index}>
+          <div className={`w-full h-full flex justify-between ${currentIndex === index ? "block" : "hidden"}`} key={index}>
             <div
-              className={` w-1/4 flex justify-start items-center name-${index} ${currentIndex === index ? "block" : "hidden"
-                }`}
+              className={`w-1/2 h-full  flex justify-center items-center `}
             >
-              <div className="pl-5">
+              <div className={` h-auto w-auto pl-5 name-${index} `}>
               <p className="text-white text-xl md:text-3xl font-extrabold name">
                 {banner.model}
               </p>
@@ -203,16 +203,17 @@ function GSAPslider() {
             </div>
 
             <div
-              className={`w-1/3 md:w-1/4 pl-5 md:px-8 flex justify-center items-center car-${index} ${currentIndex === index ? "block" : "hidden"
-                }`}
+              className={` w-1/2 h-full  flex justify-start items-center`}
             >
+              <div className={` w-auto h-auto car-${index}`}>
               <img
-                className="w-full car "
+                className={`w-full h-auto `}
                 src={`${BASE_IMAGE_URL}${banner.bannerImage}`}
                 alt={banner.model}
               />
+              </div>
             </div>
-          </React.Fragment>
+          </div>
         ))}
       </div>
     </div>

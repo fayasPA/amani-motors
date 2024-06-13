@@ -5,13 +5,12 @@
 body {
   background-color: black;
   color: white;
-  font: pacifico;
+  font-family: pacifico;
 }
 
 body::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-  /* background: red; */
+  width: 5px;
+  height: 5px;
 }
 
 body::-webkit-scrollbar-track {
