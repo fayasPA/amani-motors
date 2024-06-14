@@ -1,8 +1,27 @@
-// Modal.js
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
+
 const ConsultationModal = () => {
-  const [showModal, setShowModal] = useState(true);
+  const [isOpen, setIsOpen] = useState(true);
+
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    // Prevent body from scrolling when the modal is open
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    // Clean up when the component is unmounted or isOpen changes
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isOpen]);
+
   useEffect(() => {
     gsap.to('#animated-button', {
       backgroundPosition: '200% center',
@@ -13,118 +32,114 @@ const ConsultationModal = () => {
     });
   }, []);
 
-  useEffect(() => {
-    // Prevent body from scrolling when the modal is open
-    if (showModal) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-
-    // Clean up when the component is unmounted or showModal changes
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [showModal]);
   return (
     <>
-      {showModal ? (
-        <>
-          <div
-            className="consultation-modal justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
-          >
-            <div className="max-h-screen relative w-full my-6 mx-auto max-w-sm md:max-w-lg text-black">
-              {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                {/*header*/}
-                <div className="flex items-center text-center justify-end rounded-t">
-                  <button className="m-1 px-1 ml-auto bg-transparent border-2 border-[#c0bbbb6c] rounded-sm text-black  float-right  text-sm md:text-xl leading-none font-light outline-none focus:outline-none"
-                    onClick={() => setShowModal(false)}
+      {isOpen && (
+        <div
+          id="authentication-modal"
+          tabIndex="-1"
+          aria-hidden="true"
+          className="fixed inset-0 z-50 flex justify-center items-center w-full h-full bg-gray-800 bg-opacity-50"
+        >
+          <div className="relative p-4 w-full max-w-md max-h-full">
+            <div className="consultation-modal relative bg-white rounded-sm shadow dark:bg-gray-700 md:overflow-y-auto max-h-[90vh]">
+              <div className=" flex items-center justify-between p-1 rounded-t ">
+                <button
+                  type="button"
+                  className="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-6 h-6 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                  onClick={toggleModal}
+                >
+                  <svg
+                    className="w-2 h-2"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 14"
                   >
-                    X
-                  </button>
-                </div>
-                <div className="flex items-center text-center justify-between px-5 border-b border-solid border-x-gray-200 rounded-t">
-                  <h3 className="text-3xl font-semibold w-full">
-                    Get Free Consultation
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="3"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                    />
+                  </svg>
+                  <span className="sr-only">Close modal</span>
+                </button>
+              </div>
+              <div className="flex items-center text-center justify-center rounded-t">
+                  <h3 className="font-roboto text-xl font-semibold text-gray-900 dark:text-white">
+                    Get a Free Consultation
                   </h3>
-                  {/* <button
-                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                    onClick={() => setShowModal(false)}
-                  >
-                    <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                      ×
-                    </span>
-                  </button> */}
                 </div>
-                {/*body*/}
-                  <form>
-                <div className="px-6 pt-2 flex-auto">
-                    <div className="mb-4">
-                      <label className="block text-gray-700">Full Name</label>
+              <div className="px-8">
+                <form>
+                  <div className="pt-2 flex-auto text-xs md:text-sm font-normal">
+                    <div className="mb-2">
+                      <label className="block text-gray-700 ">Full Name <span className=' text-red-600 '>*</span></label>
                       <input
                         type="text"
-                        className="w-full text-slate-950 px-3 py-2 border rounded-lg"
+                        className="w-full text-slate-950 px-3 py-2 border border-[#f3f0f0e8] rounded-sm focus:outline-none focus:ring-0 focus:border-transparent"
                         placeholder="Enter your full name"
                         required
                       />
                     </div>
-                    <div className="mb-4">
-                      <label className="block text-gray-700">Vehicle *</label>
+                    <div className="mb-2">
+                      <label className="block text-gray-700">Vehicle <span className=' text-red-600 '>*</span></label>
                       <input
                         type="text"
-                        className="w-full text-slate-950 px-3 py-2 border rounded-lg"
+                        className="w-full text-slate-950 px-3 py-2 border border-[#f3f0f0e8] rounded-sm focus:outline-none focus:ring-0 focus:border-transparent"
                         placeholder="Enter your vehicle"
                         required
                       />
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                       <label className="block text-gray-700">Budget</label>
                       <input
                         type="text"
-                        className="w-full text-slate-950 px-3 py-2 border rounded-lg"
+                        className="w-full text-slate-950 px-3 py-2 border border-[#f3f0f0e8] rounded-sm focus:outline-none focus:ring-0 focus:border-transparent"
                         placeholder="Enter your budget"
                       />
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                       <label className="block text-gray-700">Email ID</label>
                       <input
                         type="email"
-                        className="w-full text-slate-950 px-3 py-2 border rounded-lg"
+                        className="w-full text-slate-950 px-3 py-2 border border-[#f3f0f0e8] rounded-sm focus:outline-none focus:ring-0 focus:border-transparent"
                         placeholder="Enter your email"
                       />
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                       <label className="block text-gray-700">Mobile Number *</label>
                       <input
                         type="tel"
-                        className="w-full px-3 text-slate-950 py-2 border rounded-lg"
+                        className="w-full text-slate-950 px-3 py-2 border border-[#f3f0f0e8] rounded-sm focus:outline-none focus:ring-0 focus:border-transparent"
                         placeholder="Enter your mobile number"
                         required
                       />
                     </div>
-                </div>
-                {/*footer*/}
-                <div className="flex items-center justify-end p-6 border-t border-solid border-gray-200 rounded-b">
-                  <button
-                    id="animated-button"
-                    type="submit"
-                    className="w-full px-3 py-2 font-semibold text-white rounded-lg"
-                    style={{
-                      background: 'linear-gradient(to right, #b49f8c, #F7EF8A, #D2AC47, #EDC967)',
-                      backgroundSize: '200% 200%',
-                    }}
-                  >
-                    Submit
-                  </button>
-                </div>
-                  </form>
+                  </div>
+                  {/*footer*/}
+                  <div className="flex items-center justify-end  pb-7 rounded-b">
+                    <button
+                      id="animated-button"
+                      type="submit"
+                      className="w-full px-3 py-2 font-semibold text-white rounded-sm"
+                      style={{
+                        background:
+                          'linear-gradient(to right, #b49f8c, #F7EF8A, #D2AC47, #EDC967)',
+                        backgroundSize: '200% 200%',
+                      }}
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-        </>
-      ) : null}
+        </div>
+      )}
     </>
   );
 };
