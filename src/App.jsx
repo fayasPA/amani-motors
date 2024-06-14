@@ -15,6 +15,7 @@ import About from './pages/About/About';
 import Cars from './pages/StockCars/Cars';
 import SellCar from './pages/SellCar/SellCar';
 import CarDetails from './pages/CarDetail/CarDetails';
+import Gallery from './pages/Gallery/Gallery';
 
 
 function App() {
@@ -28,8 +29,9 @@ function App() {
           <Route path="" element={<Cars />} />
           <Route path=":carId/*" element={<CarDetails />} />
         </Route>
-        {/* <Route path="about" element={<About />} />
-        <Route path="sellcar" element={<SellCar />} /> */}
+        <Route path="sellcar" element={<SellCar />} />
+        <Route path="gallery" element={<Gallery />} />
+        <Route path="about" element={<About />} />
       </Route>
     )
   );

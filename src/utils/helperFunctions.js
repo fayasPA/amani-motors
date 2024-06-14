@@ -21,3 +21,8 @@ export const capitalizeFirstLetters = (string) => {
       .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
       .join(' ');
   }
+
+export const capitalizeWord = (string) => {
+    if (!string) return string; // Handle empty string
+    return string.toUpperCase()
+}

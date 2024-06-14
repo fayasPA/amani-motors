@@ -10,7 +10,9 @@ export default {
           "url('https://th.bing.com/th/id/R.e413c7097a84cdd611bcba572c112be4?rik=804guqGDpctbWQ&riu=http%3a%2f%2fwww.publicdomainpictures.net%2fpictures%2f210000%2fvelka%2fwhite-wall-texture-background.jpg&ehk=8qgALWcSHb1z9SLyhfsvo%2f6yVF5aip1vpkv5i6zmQjg%3d&risl=&pid=ImgRaw&r=0')",
       },
       fontFamily: {
-        pacifico: ["Pacifico", "cursive"], // Name and fallback font
+        pacifico: ['Pacifico', 'cursive'],
+        roboto: ['Roboto', 'sans-serif'],
+        josefin: ['Josefin Sans', 'sans-serif'],
       },
       colors: {
         blue: "#2997FF",

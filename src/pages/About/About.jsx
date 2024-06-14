@@ -132,9 +132,9 @@ const About = () => {
   }, []);
 
   return (
-    <div className="h-auto py-5 about-section">
+    <div className="h-auto about-section">
       <header
-        className="aboutus h-64 bg-gray-300 text-2xl font-bold flex flex-col gap-1 justify-center items-center opacity-80"
+        className="aboutus h-36 md:h-64 bg-gray-300 text-2xl font-bold flex flex-col gap-1 justify-center items-center opacity-80"
         style={{
           backgroundImage: "url(/src/assets/images/about_us/aboutUsBg2.jpg)",
           backgroundSize: "cover",
@@ -144,89 +144,56 @@ const About = () => {
         <span>About us</span>
         <p className="text-sm font-extralight">House of used cars</p>
       </header>
-      <div className="flex-1 bg-white h-full p-5">
+      <div className="flex-1  py-5 bg-white h-full p-5">
         <div className="text-black flex justify-center directors">
           <h2 className="text-lg md:text-xl font-bold">DIRECTORS</h2>
         </div>
-        <div className="flex flex-col md:flex-row gap-5 md:gap-20 px-5 py-3 pb-10 w-full justify-center items-center">
-          <div className="max-w-sm rounded overflow-hidden shadow-lg w-full md:w-1/3 h-80 md:h-60 individualDirectors">
-            <img
-              src="/src/assets/images/about_us/rajagopal.jpeg"
-              className="w-full h-[80%]"
-              alt=""
-            />
-            <div className="px-6 py-4">
-              <div className="text-xs md:text-sm mb-2 text-black font-normal">
+        <div className="flex flex-wrap flex-col md:flex-row gap-5 md:gap-10 px-5 py-3 pb-10 w-full justify-center items-center">
+
+          <div className="max-w-sm w-full md:w-1/3 block rounded-lg bg-white shadow-[0_2px_15px_-3px_#d1d1d1,0_10px_20px_-2px_#e0e0e0] dark:bg-neutral-700">
+              <img
+                className="rounded-t-lg"
+                src="/src/assets/images/about_us/rajagopal.jpeg"
+                alt="" />
+            <div className="p-6 text-black">
+              <h5
+                className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
                 Dr. Rajeev Rajagopalan
-              </div>
-            </div>
-            <div className="px-6 pt-4 pb-2">
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                #photography
-              </span>
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                #travel
-              </span>
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                #winter
-              </span>
+              </h5>
+              {/* <button
+              type="button"
+              className="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-blue-600 hover:shadow-[0_8px_9px_-4px_#60a5fa,0_4px_18px_0_#93c5fd] focus:bg-blue-600 focus:shadow-[0_8px_9px_-4px_#60a5fa,0_4px_18px_0_#93c5fd] focus:outline-none focus:ring-0 active:bg-blue-700 active:shadow-[0_8px_9px_-4px_#60a5fa,0_4px_18px_0_#93c5fd] dark:shadow-[0_4px_9px_-4px_#3b82f6] dark:hover:shadow-[0_8px_9px_-4px_#93c5fd,0_4px_18px_0_#bfdbfe] dark:focus:shadow-[0_8px_9px_-4px_#93c5fd,0_4px_18px_0_#bfdbfe] dark:active:shadow-[0_8px_9px_-4px_#93c5fd,0_4px_18px_0_#bfdbfe]">
+              Button
+            </button> */}
             </div>
           </div>
-          <div className="max-w-sm rounded overflow-hidden shadow-lg w-full md:w-1/3 h-80 md:h-60 individualDirectors">
-            <img
+
+          <div className="max-w-sm w-full md:w-1/3 block rounded-lg bg-white shadow-[0_2px_15px_-3px_#d1d1d1,0_10px_20px_-2px_#e0e0e0] dark:bg-neutral-700">
+              <img
+                className="rounded-t-lg"
               src="/src/assets/images/about_us/ameen_ali.jpeg"
-              className="w-full h-[80%]"
-              alt=""
-            />
-            <div className="px-6 py-4">
-              <div className="text-xs md:text-sm mb-2 text-black font-normal">
+                alt="" />
+            <div className="p-6 text-black">
+              <h5
+                className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
                 Ameen Ali
-              </div>
-            </div>
-            <div className="px-6 pt-4 pb-2">
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                #photography
-              </span>
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                #travel
-              </span>
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                #winter
-              </span>
+              </h5>
             </div>
           </div>
-          <div className="max-w-sm rounded overflow-hidden shadow-lg w-full md:w-1/3 h-80 md:h-60 individualDirectors">
-            <img
+
+          <div className="max-w-sm w-full md:w-1/3 block rounded-lg bg-white shadow-[0_2px_15px_-3px_#d1d1d1,0_10px_20px_-2px_#e0e0e0] dark:bg-neutral-700">
+              <img
+                className="rounded-t-lg"
               src="/src/assets/images/about_us/maniKutan.jpeg"
-              className="w-full h-[80%]"
-              alt=""
-            />
-            <div className="px-6 py-4">
-              <div className="text-xs md:text-sm mb-2 text-black font-normal">
+                alt="" />
+            <div className="p-6 text-black">
+              <h5
+                className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
                 Mani Kuttan
-              </div>
-            </div>
-            <div className="px-6 pt-4 pb-2">
-              <span
-                className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold
-               text-gray-700 mr-2 mb-2"
-              >
-                #photography
-              </span>
-              <span
-                className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm 
-              font-semibold text-gray-700 mr-2 mb-2"
-              >
-                #travel
-              </span>
-              <span
-                className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm 
-              font-semibold text-gray-700 mr-2 mb-2"
-              >
-                #winter
-              </span>
+              </h5>
             </div>
           </div>
+
         </div>
 
         <div className="flex flex-col text-center text-black justify-start GSAPabt">

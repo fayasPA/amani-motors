@@ -144,22 +144,30 @@ const CarDetails = () => {
                             </div>
 
                             <div className="mt-8 flow-root sm:mt-12">
-                                <ul className="space-y-2 columns-3 footer font-thin">
+                                <ul className="space-y-2 columns-3 footer font-light">
                                     <li className="text-xs md:text-base"><span className='font-semibold'>Condition:</span> Used</li>
                                     <li className="text-xs md:text-base"><span className='font-semibold'>Year:</span> {data.year}</li>
-                                    <li className="text-xs md:text-base"><span className='font-semibold'>Color:</span> {data.color}</li>
-                                    <li className="text-xs md:text-base"><span className='font-semibold'>Engine Type:</span> data.fuel_type</li>
-                                    <li className="text-xs md:text-base"><span className='font-semibold'>Ownership:</span> {data.ownership}</li>
-                                    <li className="text-xs md:text-base"><span className='font-semibold'>Transmission:</span> {data.transmission}</li>
+                                    <li className="text-xs md:text-base"><span className='font-semibold'>Engine Size:</span> {data.engine_size?? 'N/A'}</li>
+                                    <li className="text-xs md:text-base"><span className='font-semibold'>Color:</span> {data.color?? 'N/A'}</li>
+                                    <li className="text-xs md:text-base"><span className='font-semibold'>Engine Type:</span> {data.fuel_type ?? 'N/A'}</li>
+                                    <li className="text-xs md:text-base"><span className='font-semibold'>Ownership:</span> {data.ownership ?? 'N/A'}</li>
+                                    <li className="text-xs md:text-base"><span className='font-semibold'>Insurance Date:</span> {data.insurance_dating ?? 'N/A'}</li>
+                                    <li className="text-xs md:text-base"><span className='font-semibold'>Transmission:</span> {data.transmission ?? 'N/A'}</li>
                                     <li className="text-xs md:text-base"><span className='font-semibold'>Status:</span> {data.status}</li>
                                 </ul>
                                 <a href={`tel:${phoneNumber}`} id="call-button">
-                                    <button className=" my-5 text-[#ffff] font-semibold py-2 px-4 rounded w-full flex gap-5 justify-center items-center"
+                                    <button className="bg-gradient-to-r from-gray-800  to-gray text-white my-5 font-semibold py-2 px-4 rounded w-full flex gap-5 justify-center items-center"
+                                    // style={{ background: 'linear-gradient(to right, #AEB625, #F7EF8A, #D2AC47, #EDC967)', backgroundSize: '200% 200%' }}
+                                    >
+                                        <TbPhoneCall size={25} className='text-zinc' />
+                                        <h1 className="text-xl md:text-3xl font-bold  font-pacifico">Book an Appointment</h1>
+                                    </button>
+                                    {/* <button className=" my-5 font-semibold py-2 px-4 rounded w-full flex gap-5 justify-center items-center"
                                         style={{ background: 'linear-gradient(to right, #AEB625, #F7EF8A, #D2AC47, #EDC967)', backgroundSize: '200% 200%' }}
                                     >
                                         <TbPhoneCall size={25} className='text-gray-100' />
-                                        <h1 className="text-xl md:text-3xl font-bold ">Book an Appointment</h1>
-                                    </button>
+                                        <h1 className="text-xl md:text-3xl font-bold text-gray-100 font-pacifico">Book an Appointment</h1>
+                                    </button> */}
                                 </a>
                             </div>
                         </div>
