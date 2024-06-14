@@ -17,7 +17,7 @@ const Home = () => {
       <div className="flex-1 bg-white">
         <CarCards />
       </div>
-      {/* <Services /> */}
+      <Services />
 
       {/* <GradientButton /> */}
     </div>
