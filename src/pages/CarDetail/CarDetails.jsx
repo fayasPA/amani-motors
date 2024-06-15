@@ -9,6 +9,9 @@ import { LuFuel } from "react-icons/lu";
 import { TbPhoneCall } from "react-icons/tb";
 
 const CarDetails = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     const [data, setData] = useState([]);
     const [images, setImages] = useState([]);
     const [selectedImage, setSelectedImage] = useState(null);
@@ -17,9 +20,6 @@ const CarDetails = () => {
     const { carId } = useParams();
     const phoneNumber = "+919037696969"
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
 
     useEffect(() => {
         get_banner_data();
@@ -98,7 +98,7 @@ const CarDetails = () => {
                                 </div>
                                 <div className="flex items-center gap-2 justify-center">
                                     <LuFuel size={15} className='text-gray' />
-                                    <span className='text-gray font-medium'>data.petrol</span>
+                                    <span className='text-gray font-medium'>{data.fuel_type}</span>
                                 </div>
                                 <div className="flex items-center gap-2 justify-center">
                                     <IoSpeedometerOutline size={15} className='text-gray' />
