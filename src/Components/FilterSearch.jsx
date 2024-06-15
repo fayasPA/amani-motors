@@ -36,7 +36,7 @@ function FilterSearch() {
         <div className='w-full'> <RangeSliderComponent /></div>
         </div>
         <div className='flex-1 flex w-full md:w-auto justify-center md:justify-start'>
-        <button className='bg-gray-700 font-bold text-white text-xs md:text-sm p-1 md:p-2 '>Search the Vehicle</button>
+        <button className='bg-gray-700 font-bold text-white text-xs md:text-sm p-2 '>Filter Vehicles</button>
         </div>
       </div>
 

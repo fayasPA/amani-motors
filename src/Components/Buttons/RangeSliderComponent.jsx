@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 import '/src/assets/styles/rangeSliderStyle.css'
+import { getNumberToCurrencyText } from "../../utils/helperFunctions";
 
 
 const RangeSliderComponent = () => {
@@ -27,8 +28,8 @@ const RangeSliderComponent = () => {
             onInput={handleChange} 
           />
           <div style={{fontSize: '.8em'}} className="flex justify-between pt-3 ">
-            <span>{value[0]}</span>
-            <span>{value[1]}</span>
+            <span>{getNumberToCurrencyText(value[0])}</span>
+            <span>{getNumberToCurrencyText(value[1])}</span>
           </div>
         </div>
       </div>
