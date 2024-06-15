@@ -29,8 +29,8 @@ function CarCards() {
   }
 
   return (
-    <div className="container mx-auto p-4 mt-4 text-black ">
-      <div className='h-56 md:h-40  relative w-[95%] z-30'>
+    <div className="container mx-auto px-4 mt-2 md:mt-4 text-black ">
+      <div className='h-52 md:h-44  relative w-[95%] z-30'>
         <div className='absolute top-[-20%] w-full'>
           <FilterSearch />
         </div>
