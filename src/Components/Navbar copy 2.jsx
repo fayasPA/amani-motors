@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FaFacebook, FaInstagram, FaPhone, FaTwitter, FaYoutube } from "react-icons/fa";
-import Logo from "/src/assets/images/navbar_logo.jpeg"
+import Logo from "/assets/images/navbar_logo.jpeg"
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import GradientButton from './Buttons/GradientButton';
 import './Buttons/GradientButton.css';

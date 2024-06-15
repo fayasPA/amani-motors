@@ -44,7 +44,7 @@ const CarDetails = () => {
             <header
                 className="aboutus h-40 bg-gray-300 text-2xl font-bold flex flex-col gap-1 justify-center items-center "
                 style={{
-                    backgroundImage: "url(/src/assets/images/about_us/aboutUsBg2.jpg)",
+                    backgroundImage: "url(/assets/images/about_us/aboutUsBg2.jpg)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}
