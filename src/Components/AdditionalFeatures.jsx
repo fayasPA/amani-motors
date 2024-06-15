@@ -3,7 +3,7 @@ import { FaCar, FaCalculator, FaShieldAlt, FaMoneyBill } from "react-icons/fa";
 
 const Services = () => {
   return (
-    <div className="w-full bg-custom-background1  bg-cover bg-center py-12 pb-5">
+    <div className="w-full bg-custom-background1  bg-cover bg-center mt-5 py-12 pb-5">
       <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 items-start gap-8">
         <div className="text-center p-4 mx-auto flex flex-col justify-center items-center">
           <div

@@ -71,9 +71,11 @@ function CarCards() {
           </div>
         ))}
       </div>
-      <Link to={'/vehicles'} className='w-full flex items-center justify-end pt-5 pr-3 font-semibold'>
-        <p className='text-gray-500 text-xs'>View More Cars</p>
-        <FaChevronRight size={10} className='text-gray-500 ' />
+      <Link  to={'/vehicles'} className='w-full flex items-center pt-5 pr-5 font-semibold '>
+        <div className='text-gray-500 hover:text-slate-800 flex w-fit h-full justify-center items-center transition-transform transform hover:scale-110 ml-auto gap-1'>
+        <p className=' text-xs'>View More Cars</p>
+        <FaChevronRight size={10} className=' ' />
+        </div>
       </Link>
     </div>
   );
