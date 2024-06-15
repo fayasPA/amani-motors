@@ -1,219 +1,215 @@
 import React, { useEffect, useState } from "react";
-import img1 from "../../public/side1.png";
-import img2 from "../../public/side2.png";
-import img3 from "../../public/sidecar3.png";
-import img4 from "../../public/sidecar4.png";
-import img5 from "../../public/sidecar5.png";
+import img1 from "/side1.png";
+import img2 from "/side2.png";
+import img3 from "/sidecar3.png";
+import img4 from "/sidecar4.png";
+import img5 from "/sidecar5.png";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { axiosAPI } from "../utils/axiosAPI";
+import { BASE_IMAGE_URL, GET_BANNER_VEHICLES } from "../utils/urls";
+import { Link, NavLink } from "react-router-dom";
+import { capitalizeFirstLetters, capitalizeWord, getNumberToCurrencyText } from "../utils/helperFunctions";
 gsap.registerPlugin(ScrollTrigger);
 
 function GSAPslider() {
-  const Imagearr = [img1, img2, img3, img4, img5];
-  const PriceArr = ["₹5000000", "₹6000000", "₹7000000", "₹8000000", "₹9000000"];
-  const ModelArr = [
-    "Model :2018",
-    "Model :2022",
-    "Model :2020",
-    "Model :2020",
-    "Model :2021",
-  ];
+  const axiosInstance = axiosAPI();
 
-  const Namearr = [
-    "LAMBORGINI",
-    "PORCHE",
-    "LAMBORGINI URUS",
-    "BENZ",
-    "CHEVERLOTE",
-  ];
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [bannerData, setBannerData] = useState([]);
+
+  useEffect(() => {
+    get_banner_data();
+  }, []);
+  async function get_banner_data() {
+    try {
+      const response = await axiosInstance.get(GET_BANNER_VEHICLES);
+      if (response.status === 200) {
+        setBannerData(response.data.carDetails);
+        setCurrentIndex(0)
+      }
+    } catch (error) {
+      console.log("---------BANNER_ERROR", error);
+    }
+  }
+
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % Imagearr.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % bannerData.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [bannerData]);
 
   useEffect(() => {
-    gsap.fromTo(
-      `.car-${currentIndex}`,
-      {
-        x: 500,
-        y: 400,
-        borderRadius: "0%",
-        yoyo: false,
-        rotation: 0,
-        opacity: 0,
-      },
-      {
-        x: -150,
-        y: -100,
-        repeat: 0,
-        yoyo: false,
-        rotation: 0,
-        borderRadius: "0%",
-        duration: 1.2,
-        ease: "none",
-        stagger: 0.5,
-        opacity: 1,
-        scale: 2,
-        scrollTrigger: {
-          trigger: `.car-${currentIndex}`,
-          toggleActions: "restart none none none ",
+    if (bannerData.length > 0) {
+      gsap.fromTo(
+        `.car-${currentIndex}`,
+        {
+          x: 100,
+          y: -100,
+          borderRadius: "0%",
+          yoyo: false,
+          rotation: 0,
+          opacity: 0,
         },
-      }
-    );
-    gsap.fromTo(
-      `.name-${currentIndex}`,
-      {
-        x: 100,
-        y: -200,
-        borderRadius: "0%",
-        yoyo: false,
-        rotation: 0,
-        opacity: 0,
-      },
-      {
-        y: -100,
-        x: 200,
-        repeat: 0,
-        yoyo: false,
-        rotation: 0,
-        borderRadius: "0%",
-        duration: 1.2,
-        ease: "none",
-        stagger: 0.5,
-        scale: 1.5,
-        opacity: 1,
-        scrollTrigger: {
-          trigger: `.car-${currentIndex}`,
-          toggleActions: "restart none none none ",
-        },
-      }
-    );
+        {
+          x: 0,
+          y: 0,
+          repeat: 0,
+          yoyo: false,
+          rotation: 0,
+          borderRadius: "0%",
+          duration: 2,
+          ease: "none",
+          stagger: 0.5,
+          opacity: 1,
+          // scale: 2,
+          scrollTrigger: {
+            trigger: `.car-${currentIndex}`,
+            toggleActions: "restart none none none ",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      `.price-${currentIndex}`,
-      {
-        x: -400,
-        y: 0,
-        borderRadius: "0%",
-        yoyo: false,
-        rotation: 0,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        x: -200,
-        repeat: 0,
-        yoyo: false,
-        rotation: 0,
-        borderRadius: "0%",
-        duration: 1.2,
-        ease: "none",
-        stagger: 0.5,
-        scale: 1.2,
-        opacity: 1,
-        scrollTrigger: {
-          trigger: `.price-${currentIndex}`,
-          toggleActions: "restart none none none ",
+      gsap.fromTo(
+        `.car-name-${currentIndex}`,
+        {
+          x: 0,
+          y: -300,
+          borderRadius: "0%",
+          yoyo: false,
+          rotation: 0,
+          opacity: 5,
         },
-      }
-    );
+        {
+          x: 0,
+          y: 0,
+          repeat: 0,
+          yoyo: false,
+          rotation: 0,
+          borderRadius: "0%",
+          duration: 0.5,
+          ease: "power1.in",
+          stagger: .5,
+          // scale: 1.5,
+          opacity: 1,
+          // scrollTrigger: {
+          //   trigger: `.car-${currentIndex}`,
+          //   toggleActions: "restart none none none ",
+          // },
+        }
+      );
 
-    gsap.fromTo(
-      `.model-${currentIndex}`,
-      {
-        x: -500,
-        y: 0,
-        borderRadius: "0%",
-        yoyo: false,
-        rotation: 0,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        x: -300,
-        repeat: 0,
-        yoyo: false,
-        rotation: 0,
-        borderRadius: "0%",
-        duration: 1.2,
-        ease: "none",
-        stagger: 0.5,
-        scale: 1.2,
-        opacity: 1,
-        scrollTrigger: {
-          trigger: `.model-${currentIndex}`,
-          toggleActions: "restart none none none ",
-        },
-      }
-    );
-  }, [currentIndex]);
+      // gsap.fromTo(
+      //   `.price-${currentIndex}`,
+      //   {
+      //     x: -400,
+      //     y: 0,
+      //     borderRadius: "0%",
+      //     yoyo: false,
+      //     rotation: 0,
+      //     opacity: 0,
+      //   },
+      //   {
+      //     y: 0,
+      //     x: -200,
+      //     repeat: 0,
+      //     yoyo: false,
+      //     rotation: 0,
+      //     borderRadius: "0%",
+      //     duration: 1.2,
+      //     ease: "none",
+      //     stagger: 0.5,
+      //     scale: 1.2,
+      //     opacity: 1,
+      //     scrollTrigger: {
+      //       trigger: `.price-${currentIndex}`,
+      //       toggleActions: "restart none none none ",
+      //     },
+      //   }
+      // );
+
+      // gsap.fromTo(
+      //   `.model-${currentIndex}`,
+      //   {
+      //     x: -500,
+      //     y: 0,
+      //     borderRadius: "0%",
+      //     yoyo: false,
+      //     rotation: 0,
+      //     opacity: 0,
+      //   },
+      //   {
+      //     y: 0,
+      //     x: -300,
+      //     repeat: 0,
+      //     yoyo: false,
+      //     rotation: 0,
+      //     borderRadius: "0%",
+      //     duration: 1.2,
+      //     ease: "none",
+      //     stagger: 0.5,
+      //     scale: 1.2,
+      //     opacity: 1,
+      //     scrollTrigger: {
+      //       trigger: `.model-${currentIndex}`,
+      //       toggleActions: "restart none none none ",
+      //     },
+      //   }
+      // );
+    }
+  }, [currentIndex, bannerData]);
 
   return (
-    <div className="relative w-full h-screen bg-custom-background bg-cover bg-center">
-      {/* Overlay for transparency */}
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-      {/* Ensure children are above the overlay */}
-      <div className="relative flex w-full h-full z-10">
-        {Imagearr.map((image, index) => (
-          <React.Fragment key={index}>
-            <div
-              className={`  w-1/2 flex justify-start items-center mb-20 name-${index} ${currentIndex === index ? "block" : "hidden"
-                }`}
-            >
-              <div className="pl-5">
-              <p className="text-white text-2xl font-extrabold name">
-                {Namearr[index]}
-              </p>
-              <p className="text-slate-500 text-sm font-medium price">
-                {ModelArr[index]}
-              </p>
-              <p className="text-slate-500 text-xl font-bold price">
-                {PriceArr[index]}
-              </p>
+    <div className="relative w-full h-80 md:h-96 bg-custom-background bg-cover bg-center">
+  {/* Overlay for transparency */}
+  <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+  {/* Ensure children are above the overlay */}
+  <div className="relative flex justify-between w-full h-full overflow-hidden z-20">
+    {bannerData.map((banner, index) => (
+      <div className={`w-full h-full flex justify-between ${currentIndex === index ? "block" : "hidden"}`} key={index}>
+        <div className="w-1/2 h-full flex flex-col justify-center items-center gap-2 md:gap-5 pl-10 md:pl-20">
+          <div className="w-full flex justify-start text-white text-xs md:text-sm font-extrabold name">
+            <div className="w-1/2 md:w-1/3 border-x-2 flex justify-center">
+              <div className="w-fit">
+              <p className="text-[#fff]" style={{fontSize: '0.7em'}}>{capitalizeWord(banner.car_type)}</p>
               </div>
-              
             </div>
-
-            {/* <div
-              className={` w-1/2 flex justify-start items-center mb-20 price-${index} ${currentIndex === index ? "block" : "hidden"
-                }`}
-            >
-              <p className="text-slate-500 text-2xl font-bold price">
-                {PriceArr[index]}
+          </div>
+          <div className="w-full flex flex-col justify-start h-auto">
+            <p className={`car-name-${index} text-white text-xl md:text-2xl font-extrabold name`}>
+              {capitalizeFirstLetters(`${banner.brand} ${banner.model}`)}
+            </p>
+            <div className="flex gap-2 md:gap-4">
+              <p className={`car-name-${index} text-slate-500 text-xs md:text-sm font-semibold font-serif price`}>
+                MODEL {banner.year}
               </p>
-
-            </div> */}
-
-            {/* <div
-              className={`w-1/2 flex justify-center items-center mb-40 model-${index} ${
-                currentIndex === index ? "block" : "hidden"
-              }`}
-            >
-              <p className="text-slate-500 text-xl font-extrabold model">
-                {ModelArr[index]}
+              <p className={`car-name-${index} text-slate-500 text-xs md:text-sm font-bold price`}>
+                {getNumberToCurrencyText(banner.price)}
               </p>
-            </div> */}
-
-            <div
-              className={`w-1/3 p-10 flex justify-center items-center car-${index} ${currentIndex === index ? "block" : "hidden"
-                }`}
-            >
-              <img
-                className="w-[450px] car "
-                src={image}
-                alt={Namearr[index]}
-              />
             </div>
-          </React.Fragment>
-        ))}
+          </div>
+          <div className="w-full flex justify-start">
+            <NavLink to={`/vehicles/${banner.id}`}>
+              <button onClick={() => console.log("FAYAS", banner.id)} className="bg-gradient-to-r from-gray-800 to-gray text-white font-semibold px-4 rounded-sm w-full text-xs md:text-sm">
+                See Details
+              </button>
+            </NavLink>
+          </div>
+        </div>
+        <div className="w-1/2 h-full flex justify-start items-center">
+          <div className={`w-auto h-auto car-${index}`}>
+            <img className="w-full h-auto" src={`${BASE_IMAGE_URL}${banner.bannerImage}`} alt={banner.model} />
+          </div>
+        </div>
       </div>
-    </div>
+    ))}
+  </div>
+</div>
+
   );
 }
 

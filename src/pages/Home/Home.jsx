@@ -3,14 +3,15 @@ import { SwipeCarousel } from "../../Components/Carousel";
 import CarCards from "../../Components/CarCards";
 import LocomotiveScroll from "locomotive-scroll";
 import GSAPslider from "../../Components/GSAPslider";
-import Modal from "../../Components/Modals/Modal";
 import Services from "../../Components/AdditionalFeatures";
+import ConsultationModal from "../../Components/Modals/ConsultationModal";
 
 const Home = () => {
   const locomotiveScroll = new LocomotiveScroll();
 
   return (
-    <div className="">
+    <div className="bg-white">
+      <ConsultationModal />
       <GSAPslider />
 
       <div className="flex-1 bg-white">

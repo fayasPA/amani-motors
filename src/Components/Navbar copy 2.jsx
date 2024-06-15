@@ -21,6 +21,7 @@ export default function Navbar() {
 
   const [nav, setNav] = useState(false)
   const navigate = useNavigate();
+  const menuRef = useRef(null);
   const handleNav = () => {
     setNav(!nav)
   }
@@ -32,36 +33,17 @@ export default function Navbar() {
 
   useEffect(() => {
     if (nav) {
-      gsap.fromTo(
-        ".sm-navbar",
-        {
-          x: 0,
-          y: '-200%',
-          borderRadius: "0%",
-          yoyo: false,
-          rotation: 0,
-          opacity: 0,
-        },
-        {
-          x: 0,
-          y: 0,
-          repeat: 0,
-          yoyo: true,
-          rotation: 0,
-          borderRadius: "0%",
-          duration: 0.5,
-          ease: "none",
-          stagger: 0.2,
-          opacity: 1,
-          // scrollTrigger: {
-          //   trigger: ".divfooter",
-          //   toggleActions: "restart none none none",
-          // },
-        }
-      );
-    } 
+      gsap.to(menuRef.current, { x: 0,y:0, duration: 0.5, ease: 'power3.inOut' });
+    } else {
+      gsap.to(menuRef.current, { x: 0,y:'-200%', duration: 0.5, ease: 'power3.inOut' });
+    }
   }, [nav]);
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <nav className="flex-1  border-gray-200 dark:bg-black w-[100%] py-4">
@@ -139,13 +121,13 @@ export default function Navbar() {
 
       </div>
 
-      <div className={`sm-navbar w-full ${nav ? 'block' : 'hidden'}`}>
+      <div ref={menuRef} className={`w-full ${nav ? 'block' : 'hidden'}`}>
         <ul className={`items-center justify w-full md:flex 
         md:w-auto md:order-1 gap-3`} id="navbar-search">
           <div className="relative mt-3 md:hidden">
             <div className='flex'>
               <ul className=" p-4 font-bold  uppercase h-full flex flex-col justify-center items-center gap-7 w-full text-white">
-              <li className="sm-navbar p-3 w-full text-xs">
+              <li className="p-3 w-full text-xs">
                 <div className='flex gap-5'>
               <input
                 type="text"
@@ -156,31 +138,31 @@ export default function Navbar() {
               <button>Search</button>
                 </div>
               </li>
-              <li className="sm-navbar p-3 w-full text-xs">
+              <li className="p-3 w-full text-xs">
               <NavLink to='/' onClick={() => handleNavClick('/')} className={`flex gap-5 justify-center items-start text-center`} >
                 <FaHome size={20} className='w-4 h-4' />
                 <span className=" ">HOME</span>
               </NavLink>
             </li>
-            <li className="sm-navbar p-3 w-full text-xs">
+            <li className="p-3 w-full text-xs">
               <NavLink to='/vehicles' onClick={() => handleNavClick('/vehicles')} className={`flex gap-5 justify-center items-start text-center`} >
                 <FaCarSide size={20} className='w-4 h-4' />
                 <span className=" ">Stock Cars</span>
               </NavLink>
             </li>
-            <li className="sm-navbar p-3 w-full text-xs">
+            <li className="p-3 w-full text-xs">
               <NavLink to='/sellcar' onClick={() => handleNavClick('/sellcar')} className={`flex gap-5 justify-center items-start text-center`} >
                 <FaCar size={20} className='w-4 h-4' />
                 <span className=" ">Sell Cars</span>
               </NavLink>
             </li>
-            <li className="sm-navbar p-3 w-full text-xs">
+            <li className="p-3 w-full text-xs">
               <NavLink to='/gallery' onClick={() => handleNavClick('/gallery')} className={`flex gap-5 justify-center items-start text-center`} >
                 <FaImage size={20} className='w-4 h-4' />
                 <span className=" ">Gallery</span>
               </NavLink>
             </li>
-            <li className="sm-navbar p-3 w-full text-xs">
+            <li className="p-3 w-full text-xs">
               <NavLink to='/about' onClick={() => handleNavClick('/about')} className={`flex gap-5 justify-center items-start text-center`} >
                 <FaHelmetSafety  className='w-4 h-4' />
                 <span className=" ">About Us</span>

@@ -56,84 +56,84 @@ function SecondHeader() {
   }, []);
 
   return (
-    <div className="w-full">
+    <div className="w-20 h-screen bg-red-600">
       <div
-        className={`hidden md:flex fixed bg-gray-900 h-screen  flex-col  justify-between py-2 text-xs md:text-sm`}
+        className={` hidden md:flex fixed bg-gray-900 flex-col h-screen w-20 justify-between text-xs md:text-sm`}
       >
         <NavLink
           to="/"
           className={({ isActive }) =>
-            `${isActive ? 'bg-gray-200 text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-gray-200 flex flex-col justify-center items-center`
+            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-zinc flex flex-col h-full gap-1 justify-center items-center`
           }
         >
           <FaHome className="text-xl " />
-          <span className="text-xs">HOME</span>
+          <span style={{fontSize: '10px'}} className="text-center">HOME</span>
         </NavLink>
         <NavLink
-          to="/products"
+          to="/vehicles"
           className={({ isActive }) =>
-            `${isActive ? 'bg-gray-200 text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-gray-200 flex flex-col justify-center items-center`
+            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-zinc flex flex-col gap-1 h-full justify-center items-center`
           }
         >
           <FaCarSide className="text-xl " />
-          <span className="text-xs flex justify-center ">STOCK CARS</span>
+          <span style={{fontSize: '10px'}} className="text-center flex justify-center ">STOCK CARS</span>
         </NavLink>
         <NavLink
           to="/sellcar"
           className={({ isActive }) =>
-            `${isActive ? 'bg-gray-200 text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-gray-200 flex flex-col justify-center items-center`
+            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
           }
         >
           <FaCar className="text-xl " />
-          <span className="text-xs flex justify-center ">SELL CARS</span>
+          <span style={{fontSize: '10px'}} className="text-center flex justify-center ">SELL CARS</span>
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to="/showroom"
           className={({ isActive }) =>
-            `${isActive ? 'bg-gray-200 text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-gray-200 flex flex-col justify-center items-center`
+            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
           }
         >
           <FaShop className="text-xl " />
-          <span className="text-xs flex justify-center ">SHOWROOM</span>
-        </NavLink>
+          <span style={{fontSize: '10px'}} className="text-center flex justify-center ">SHOWROOM</span>
+        </NavLink> */}
         <NavLink
           to="/gallery"
           className={({ isActive }) =>
-            `${isActive ? 'bg-gray-200 text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-gray-200 flex flex-col justify-center items-center`
+            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
           }
         >
           <FaImage className="text-xl " />
-          <span className="text-xs flex justify-center ">GALLERY</span>
+          <span style={{fontSize: '10px'}} className="text-center flex justify-center ">GALLERY</span>
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to="/insurance"
           className={({ isActive }) =>
-            `${isActive ? 'bg-gray-200 text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-gray-200 flex flex-col justify-center items-center`
+            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
           }
         >
           <FaHelmetSafety className="text-xl " />
-          <span className="text-xs flex justify-center ">INSURANCE</span>
-        </NavLink>
+          <span style={{fontSize: '10px'}} className="text-center flex justify-center ">INSURANCE</span>
+        </NavLink> */}
         <NavLink
           to="/about"
           className={({ isActive }) =>
-            `${isActive ? 'bg-gray-200 text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-gray-200 flex flex-col justify-center items-center`
+            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
           }
         >
           <FaHelmetSafety className="text-xl " />
-          <span className="text-xs flex justify-center ">ABOUT US</span>
+          <span style={{fontSize: '10px'}} className="text-center flex justify-center ">ABOUT US</span>
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to="/emi"
           className={({ isActive }) =>
-            `${isActive ? 'bg-gray-200 text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-gray-200 flex flex-col justify-center items-center`
+            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
           }
         >
           <FaCalculator className="text-xl " />
-          <span className="text-xs flex flex-col justify-center items-center ">
+          <span style={{fontSize: '10px'}} className="text-center flex flex-col justify-center items-center ">
             EMI<p>CALCULATOR</p>
           </span>
-        </NavLink>
+        </NavLink> */}
       </div>
     </div>
   );

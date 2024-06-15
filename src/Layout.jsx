@@ -7,7 +7,7 @@ import Footer from './Components/Footer'
 const Layout = () => {
   return (
     <div className='flex'>
-      <div className=' hidden md:flex w-24'>
+      <div className=' hidden md:flex w-20'>
         <SecondHeader />
       </div>
       <div className='flex-1'>
