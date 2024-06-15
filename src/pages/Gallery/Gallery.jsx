@@ -16,7 +16,7 @@ const Gallery = () => {
             <header
                 className="aboutus h-36 md:h-64 bg-gray-300 text-2xl font-bold flex flex-col gap-1 justify-center items-center opacity-80"
                 style={{
-                    backgroundImage: "url(/src/assets/images/about_us/aboutUsBg2.jpg)",
+                    backgroundImage: "url(/assets/images/about_us/aboutUsBg2.jpg)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}

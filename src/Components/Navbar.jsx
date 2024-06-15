@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FaFacebook, FaInstagram, FaPhoneAlt, FaTwitter, FaYoutube } from "react-icons/fa";
-import Logo from "/src/assets/images/navbar_logo.jpeg"
+import Logo from "/assets/images/navbar_logo.jpeg"
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import GradientButton from './Buttons/GradientButton';
 import './Buttons/GradientButton.css';
@@ -66,13 +66,13 @@ export default function Navbar() {
 
 
   return (
-    <nav className="flex-1  border-gray-200 dark:bg-black w-[100%] py-4">
+    <nav className="flex-1  border-gray-200 w-[100%] py-4">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 ">
 
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src={Logo} className="w-12 h-w-12  md:w-16 md:h-16 rounded-xl logo " alt=" Logo" />
-          <span className="italic font-pacifico logo self-center text-lg md:text-2xl font-semibold whitespace-nowrap dark:text-gray-400">AMANI MOTORS</span>
+          <span className="italic font-pacifico logo self-center text-lg md:text-2xl font-semibold whitespace-nowrap">AMANI MOTORS</span>
         </Link>
         {/* Logo */}
 
@@ -160,7 +160,7 @@ export default function Navbar() {
                     <input
                       type="text"
                       id="search-navbar"
-                      className="block w-[80%] p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="block w-[80%] p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                       placeholder="Search..."
                     />
                     <button>Search</button>

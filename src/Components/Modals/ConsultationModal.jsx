@@ -42,11 +42,11 @@ const ConsultationModal = () => {
           className="fixed inset-0 z-50 flex justify-center items-center w-full h-full bg-gray-800 bg-opacity-50"
         >
           <div className="relative p-4 w-full max-w-md max-h-full">
-            <div className="consultation-modal relative bg-white rounded-sm shadow dark:bg-gray-700 md:overflow-y-auto max-h-[90vh]">
+            <div className="consultation-modal relative bg-white rounded-sm shadow md:overflow-y-auto max-h-[90vh]">
               <div className=" flex items-center justify-between p-1 rounded-t ">
                 <button
                   type="button"
-                  className="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-6 h-6 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                  className="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-6 h-6 ms-auto inline-flex justify-center items-center "
                   onClick={toggleModal}
                 >
                   <svg
@@ -68,7 +68,7 @@ const ConsultationModal = () => {
                 </button>
               </div>
               <div className="flex items-center text-center justify-center rounded-t">
-                  <h3 className="font-roboto text-xl font-semibold text-gray-900 dark:text-white">
+                  <h3 className="font-roboto text-xl font-semibold text-gray-900 ">
                     Get a Free Consultation
                   </h3>
                 </div>
