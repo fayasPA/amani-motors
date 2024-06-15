@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-const DropdownButton = ({ options, type=null }) => {
+const DropdownButton = ({ options, type = null }) => {
   let dropDownPlaceholder = 'Select';
-  if(type === 'brand'){
+  if (type === 'brand') {
     dropDownPlaceholder = 'Any Brand'
-  } else if (type === 'model'){
+  } else if (type === 'model') {
     dropDownPlaceholder = 'Any Model'
   }
-  
+
   const [selectedOption, setSelectedOption] = useState(dropDownPlaceholder);
 
   const handleOptionClick = (event) => {
@@ -15,16 +15,16 @@ const DropdownButton = ({ options, type=null }) => {
   };
 
   return (
-    <select className='focus:outline-none focus:ring-1 focus:ring-black border border-gray-300 bg-white px-2 py-1 text-xs text-gray-700'
-     name="" id=""
-     defaultValue={""}
-    //  value={selectedOption}
-     onChange={handleOptionClick} >
+    <select className='w-fit focus:outline-none focus:ring-1 focus:ring-black border border-gray-300 bg-white px-2 py-1 text-xs md:text-sm text-gray-700'
+      name="" id=""
+      defaultValue={""}
+      //  value={selectedOption}
+      onChange={handleOptionClick} >
       <option value="" selected>{dropDownPlaceholder}</option>
       {options.map((option, index) => (
         <option key={index} value={option}>{option}</option>
       ))}
-      </select>
+    </select>
   );
 };
 

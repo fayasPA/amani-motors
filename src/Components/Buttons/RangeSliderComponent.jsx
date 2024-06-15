@@ -1,27 +1,42 @@
 import React, { useState } from "react";
 import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
+import '/src/assets/styles/rangeSliderStyle.css'
+
 
 const RangeSliderComponent = () => {
-  const [value, setValue] = useState(500000);
+  const [value, setValue] = useState([1000000, 9000000]);
 
-  const handleChange = (event) => {
-    console.log("RangeValue", event.target.value)
-    setValue(Number(event.target.value));
+  const handleChange = (range) => {
+    setValue(range);
   };
 
   return (
     <>
-    <div className="px-10 flex justify-center items-center gap-5">
-      <span className="text-sm whitespace-nowrap">PRICE RANGE</span>
-      <RangeSlider min={1000000} max={40000000} defaultValue={[1000000, 9000000]} step={10000} className="border border-gray-200" id="range-slider-component"  onChange={handleChange} />
+      <div className="w-full">
+      <div className="px-0 md:px-10 py-5 flex flex-col md:flex-row justify-center items-start md:items-center gap-5">
+        <span style={{fontSize: '.8em'}} className=" whitespace-nowrap">PRICE RANGE</span>
+        <div className="range-slider-div flex flex-col w-full">
+          <RangeSlider 
+            min={100000} 
+            max={40000000} 
+            defaultValue={value}  
+            step={10000} 
+            className=" border border-gray-200 range-slider-component" 
+            id="range-slider-component" 
+            onInput={handleChange} 
+          />
+          <div style={{fontSize: '.8em'}} className="flex justify-between pt-3 ">
+            <span>{value[0]}</span>
+            <span>{value[1]}</span>
+          </div>
+        </div>
+      </div>
     </div>
-    {/* <div className="w-[80%] flex justify-around">
-      <span>Rs 1000000</span>
-      <span>Rs 40000000</span>
+      {/* <div className="w-[80%] flex justify-around">
       </div> */}
     </>
-    
+
   );
 };
 
