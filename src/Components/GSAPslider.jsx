@@ -1,9 +1,4 @@
 import React, { useEffect, useState } from "react";
-import img1 from "/side1.png";
-import img2 from "/side2.png";
-import img3 from "/sidecar3.png";
-import img4 from "/sidecar4.png";
-import img5 from "/sidecar5.png";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
