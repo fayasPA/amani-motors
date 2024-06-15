@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import YoutubePlayer from './YoutubePlayer'
 
 const Gallery = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, [])
     const [data, setData] = useState([
         { id: 1, url: "https://www.youtube.com/watch?v=TmUYSgiyKnc&list=PLTLfwkMSvQT7rhamz_4IcolVKAFsvVF9j" },
         { id: 2, url: "https://www.youtube.com/watch?v=r1xs8hBOAc4&list=PLTLfwkMSvQT7rhamz_4IcolVKAFsvVF9j&index=2" },

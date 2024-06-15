@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import CarCards from "../../Components/CarCards";
-import { Latest_Products } from "../../Components/Data";
 import { Link, NavLink } from "react-router-dom";
 import { axiosAPI } from "../../utils/axiosAPI";
 import { BASE_IMAGE_URL, GET_ALL_VEHICLES } from "../../utils/urls";
@@ -18,7 +16,7 @@ const Cars = () => {
   const [data, setData] = useState([]);
   const [totalVehicleCount, setTotalVehicleCount] = useState(0);
   useEffect(() => {
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
 
     gsap.fromTo(
       ".headerImg",
