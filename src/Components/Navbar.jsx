@@ -149,7 +149,8 @@ export default function Navbar() {
 
       </div>
 
-      <div className={`sm-navbar w-full ${nav ? 'block' : 'hidden'}`}>
+      <div className={`sm-navbar w-full ${nav ? 'block' : 'hidden'}`}
+      >
         <ul className={`items-center justify w-full md:flex 
         md:w-auto md:order-1 gap-3`} id="navbar-search">
           <div className="relative mt-3 md:hidden">
@@ -167,31 +168,31 @@ export default function Navbar() {
                   </div>
                 </li>
                 <li className="sm-navbar p-3 w-full text-xs">
-                  <NavLink to='/' onClick={() => handleNavClick('/')} className={`flex gap-5 justify-center items-start text-center`} >
+                  <NavLink to='/' onClick={() => handleNavClick('/')} className={({ isActive }) =>`${isActive ? 'scale-110 border-x-2' : ''} flex gap-5 justify-center items-start text-center`} >
                     <FaHome size={20} className='w-4 h-4' />
                     <span className=" ">HOME</span>
                   </NavLink>
                 </li>
                 <li className="sm-navbar p-3 w-full text-xs">
-                  <NavLink to='/vehicles' onClick={() => handleNavClick('/vehicles')} className={`flex gap-5 justify-center items-start text-center`} >
+                  <NavLink to='/vehicles' onClick={() => handleNavClick('/vehicles')} className={({ isActive }) =>`${isActive ? 'scale-110 border-x-2' : ''} flex gap-5 justify-center items-start text-center`} >
                     <FaCarSide size={20} className='w-4 h-4' />
                     <span className=" ">Stock Cars</span>
                   </NavLink>
                 </li>
                 <li className="sm-navbar p-3 w-full text-xs">
-                  <NavLink to='/sellcar' onClick={() => handleNavClick('/sellcar')} className={`flex gap-5 justify-center items-start text-center`} >
+                  <NavLink to='/sellcar' onClick={() => handleNavClick('/sellcar')} className={({ isActive }) =>`${isActive ? 'scale-110 border-x-2' : ''} flex gap-5 justify-center items-start text-center`} >
                     <FaCar size={20} className='w-4 h-4' />
                     <span className=" ">Sell Cars</span>
                   </NavLink>
                 </li>
                 <li className="sm-navbar p-3 w-full text-xs">
-                  <NavLink to='/gallery' onClick={() => handleNavClick('/gallery')} className={`flex gap-5 justify-center items-start text-center`} >
+                  <NavLink to='/gallery' onClick={() => handleNavClick('/gallery')} className={({ isActive }) =>`${isActive ? 'scale-110 border-x-2' : ''} flex gap-5 justify-center items-start text-center`} >
                     <FaImage size={20} className='w-4 h-4' />
                     <span className=" ">Gallery</span>
                   </NavLink>
                 </li>
                 <li className="sm-navbar p-3 w-full text-xs">
-                  <NavLink to='/about' onClick={() => handleNavClick('/about')} className={`flex gap-5 justify-center items-start text-center`} >
+                  <NavLink to='/about' onClick={() => handleNavClick('/about')} className={({ isActive }) =>`${isActive ? 'scale-110 border-x-2' : ''} flex gap-5 justify-center items-start text-center`} >
                     <FaHelmetSafety className='w-4 h-4' />
                     <span className=" ">About Us</span>
                   </NavLink>

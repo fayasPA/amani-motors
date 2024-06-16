@@ -32,7 +32,8 @@ const About = () => {
         opacity: 1,
         scrollTrigger: {
           trigger: ".aboutus",
-          toggleActions: "restart none none none ",
+          toggleActions: "play none none none ",
+          once: true
         },
       }
     );
@@ -59,7 +60,8 @@ const About = () => {
         opacity: 1,
         scrollTrigger: {
           trigger: ".GSAPabt",
-          toggleActions: "restart none none none ",
+          toggleActions: "play none none none ",
+          once:true
         },
       }
     );
@@ -86,7 +88,8 @@ const About = () => {
         opacity: 1,
         scrollTrigger: {
           trigger: ".achievement",
-          toggleActions: "restart none none none ",
+          toggleActions: "play none none none ",
+          once:true
         },
       }
     );

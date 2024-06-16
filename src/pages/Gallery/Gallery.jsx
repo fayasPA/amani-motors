@@ -1,9 +1,70 @@
 import React, { useEffect, useState } from 'react'
 import YoutubePlayer from './YoutubePlayer'
+import { ScrollTrigger } from "gsap/all";
+import { gsap } from 'gsap/gsap-core';
+gsap.registerPlugin(ScrollTrigger);
 
 const Gallery = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+    }, [])
+
+    useEffect(() => {
+        gsap.fromTo(
+            ".gallery-header",
+            {
+              y: -200,
+              borderRadius: "0%",
+              yoyo: false,
+              rotation: 0,
+              opacity: 0,
+            },
+            {
+              y: 0,
+              repeat: 0,
+              delay: 0,
+              yoyo: false,
+              rotation: 0,
+              borderRadius: "0%",
+              duration: 0.7,
+              ease: "none",
+              stagger: 0.5,
+              opacity: 1,
+              scrollTrigger: {
+                trigger: ".gallery-header",
+                toggleActions: "play none none none ",
+                once: true
+              },
+            }
+          );
+
+          gsap.fromTo(
+            ".content-text",
+            {
+              y: 0,
+              borderRadius: "0%",
+              yoyo: false,
+              rotation: 0,
+              opacity: 0,
+            },
+            {
+              y: 0,
+              repeat: 0,
+              delay: 1,
+              yoyo: false,
+              rotation: 0,
+              borderRadius: "0%",
+              duration: 1,
+              ease: "none",
+              stagger: 0.3,
+              opacity: 1,
+              scrollTrigger: {
+                trigger: ".GSAPabt",
+                toggleActions: "play none none none ",
+                once: true
+              },
+            }
+          );
       }, [])
     const [data, setData] = useState([
         { id: 1, url: "https://www.youtube.com/watch?v=TmUYSgiyKnc&list=PLTLfwkMSvQT7rhamz_4IcolVKAFsvVF9j" },
@@ -12,17 +73,17 @@ const Gallery = () => {
     ]);
     // console.log("*******WORKING", response.data.vehicle);
     return (
-        <>
+        <div className='h-auto'>
             <header
-                className="aboutus h-36 md:h-64 bg-gray-300 text-2xl font-bold flex flex-col gap-1 justify-center items-center opacity-80"
+                className="gallery-header h-36 md:h-64 bg-gray-300 text-2xl font-bold flex flex-col gap-1 justify-center items-center opacity-80"
                 style={{
-                    backgroundImage: "url(/assets/images/about_us/aboutUsBg2.jpg)",
+                    backgroundImage: "url(/assets/images/stock_cars_header.jpg)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}
             >
-                <span>Videos & Gallery</span>
-                <p className="text-sm font-light">House of used cars</p>
+                <span className='text-2xl md:text-3xl'>Videos & Gallery</span>
+                <p className="text-xs md:text-sm font-light">House of used cars</p>
             </header>
             <section className="py-10 bg-white">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -38,7 +99,7 @@ const Gallery = () => {
                     </div>
                 </div>
             </section>
-        </>
+        </div>
 
     )
 }
