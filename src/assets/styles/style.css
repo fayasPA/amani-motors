@@ -126,3 +126,8 @@
 }
 /* Hamburger */
 
+:root {
+  --toastify-toast-width: 250px;
+  --toastify-toast-width: 250px;
+  --toastify-font-family: 'Josefin Sans';
+}
