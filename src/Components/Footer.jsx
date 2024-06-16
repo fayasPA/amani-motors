@@ -50,7 +50,7 @@ function Footer() {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Contact Information */}
         <div className="md:text-base">
-          <h2 className="italic text-base md:text-lg font-bold mb-4 footer font-pacifico">AMANI MOTORS</h2>
+          <h2 className="italic text-base md:text-lg font-bold mb-4 footer font-serif">AMANI MOTORS</h2>
           <p className="footer">
             Pipeline Rd, near AKSHAYA CENTER, Karimakkad, Thrikkakara, Edappally, Ernakulam, Kochi, Kerala 682021
           </p>

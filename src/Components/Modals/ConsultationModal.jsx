@@ -1,8 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const ConsultationModal = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const [errors, setErrors] = useState({});
+  const [formValues, setFormValues] = useState({
+    fullName: "",
+    vehicle: "",
+    budget: "",
+    mailId: "",
+    mobileNumber: ""
+  });
 
   const toggleModal = () => {
     setIsOpen(!isOpen);
@@ -23,7 +33,7 @@ const ConsultationModal = () => {
   }, [isOpen]);
 
   useEffect(() => {
-    gsap.to('#animated-button', {
+    gsap.to('#submit-button-gsap', {
       backgroundPosition: '200% center',
       duration: 1.5,
       repeat: -1,
@@ -31,6 +41,88 @@ const ConsultationModal = () => {
       ease: 'circ.inOut',
     });
   }, []);
+
+  const handleInputChange = (e) => {
+
+    const { name, value } = e.target;
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    });
+
+    if (errors[name]) {
+      const newErrors = { ...errors };
+      delete newErrors[name];
+      setErrors(newErrors);
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formValues.fullName) newErrors.fullName = 'FullName is required';
+    if (!formValues.vehicle) newErrors.vehicle = 'Vehicle is required';
+    if (!formValues.mobileNumber) newErrors.mobileNumber = 'Mobile number is required';
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+  const handleSubmit = async () => {
+    if (validateForm()) {
+      console.log("FormSubmitted", formValues)
+      try {
+        await toast.promise(
+          axios.post(
+            'https://script.google.com/macros/s/AKfycbzEqZZt-ovZ1-9Ri62fWbbl_mEBtZ_qkEbRAhZlV5OIk4cRwinfybnUTL_K8yoh7dWyoA/exec',
+            new URLSearchParams(formValues).toString()
+          ),
+          {
+            pending: 'Please Wait...',
+            success: {
+              render: 'Done :)',
+              icon: '👌',
+              position: "top-right",
+              autoClose: 1500,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              style: { fontSize: '0.8em' }
+            },
+            error: {
+              render: 'Server Error! TRY LATER',
+              position: "top-right",
+              autoClose: 2500,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              style: { fontSize: '0.8em' }
+            }
+          }
+        );
+
+        toggleModal();
+      } catch (error) {
+        console.error("Form submission error:", error);
+      }
+    }
+    else {
+      toast.error("Error! Check Your Form.", {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        style: { fontSize: '0.8em' }
+      });
+    }
+  }
 
   return (
     <>
@@ -68,35 +160,45 @@ const ConsultationModal = () => {
                 </button>
               </div>
               <div className="flex items-center text-center justify-center rounded-t">
-                  <h3 className="font-roboto text-xl font-semibold text-gray-900 ">
-                    Get a Free Consultation
-                  </h3>
-                </div>
+                <h3 className="font-roboto text-xl font-semibold text-gray-900 ">
+                  Get a Free Consultation
+                </h3>
+              </div>
               <div className="px-8">
+
                 <form>
                   <div className="pt-2 flex-auto text-xs md:text-sm font-normal">
                     <div className="mb-2">
                       <label className="block text-gray-700 ">Full Name <span className=' text-red-600 '>*</span></label>
                       <input
                         type="text"
+                        name="fullName"
+                        value={formValues.fullName}
+                        onChange={handleInputChange}
                         className="w-full text-slate-950 px-3 py-2 border border-[#f3f0f0e8] rounded-sm focus:outline-none focus:ring-0 focus:border-transparent"
                         placeholder="Enter your full name"
-                        required
                       />
+                      {errors.fullName && <span style={{ fontSize: '1em' }} className="error text-red-700">{errors.fullName}</span>}
                     </div>
                     <div className="mb-2">
                       <label className="block text-gray-700">Vehicle <span className=' text-red-600 '>*</span></label>
                       <input
                         type="text"
+                        name="vehicle"
+                        value={formValues.vehicle}
+                        onChange={handleInputChange}
                         className="w-full text-slate-950 px-3 py-2 border border-[#f3f0f0e8] rounded-sm focus:outline-none focus:ring-0 focus:border-transparent"
                         placeholder="Enter your vehicle"
-                        required
                       />
+                      {errors.vehicle && <span style={{ fontSize: '1em' }} className="error text-red-700">{errors.vehicle}</span>}
                     </div>
                     <div className="mb-2">
                       <label className="block text-gray-700">Budget</label>
                       <input
                         type="text"
+                        name="budget"
+                        value={formValues.budget}
+                        onChange={handleInputChange}
                         className="w-full text-slate-950 px-3 py-2 border border-[#f3f0f0e8] rounded-sm focus:outline-none focus:ring-0 focus:border-transparent"
                         placeholder="Enter your budget"
                       />
@@ -105,25 +207,32 @@ const ConsultationModal = () => {
                       <label className="block text-gray-700">Email ID</label>
                       <input
                         type="email"
+                        name="mailId"
+                        value={formValues.mailId}
+                        onChange={handleInputChange}
                         className="w-full text-slate-950 px-3 py-2 border border-[#f3f0f0e8] rounded-sm focus:outline-none focus:ring-0 focus:border-transparent"
                         placeholder="Enter your email"
                       />
                     </div>
                     <div className="mb-2">
-                      <label className="block text-gray-700">Mobile Number *</label>
+                      <label className="block text-gray-700">Mobile Number <span className=' text-red-600 '>*</span></label>
                       <input
                         type="tel"
+                        name="mobileNumber"
+                        value={formValues.mobileNumber}
+                        onChange={handleInputChange}
                         className="w-full text-slate-950 px-3 py-2 border border-[#f3f0f0e8] rounded-sm focus:outline-none focus:ring-0 focus:border-transparent"
                         placeholder="Enter your mobile number"
-                        required
                       />
+                      {errors.mobileNumber && <span style={{ fontSize: '1em' }} className="error text-red-700">{errors.mobileNumber}</span>}
                     </div>
                   </div>
                   {/*footer*/}
                   <div className="flex items-center justify-end  pb-7 rounded-b">
                     <button
-                      id="animated-button"
-                      type="submit"
+                      id="submit-button-gsap"
+                      type='button'
+                      onClick={handleSubmit}
                       className="w-full px-3 py-2 font-semibold text-white rounded-sm"
                       style={{
                         background:

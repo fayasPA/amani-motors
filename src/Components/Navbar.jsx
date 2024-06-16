@@ -72,7 +72,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src={Logo} className="w-12 h-w-12  md:w-16 md:h-16 rounded-xl logo " alt=" Logo" />
-          <span className="italic font-pacifico logo self-center text-lg md:text-2xl font-semibold whitespace-nowrap">AMANI MOTORS</span>
+          <span className="italic font-serif logo self-center text-lg md:text-2xl font-semibold whitespace-nowrap">AMANI MOTORS</span>
         </Link>
         {/* Logo */}
 
