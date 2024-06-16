@@ -40,7 +40,8 @@ const Cars = () => {
         opacity: 1,
         scrollTrigger: {
           trigger: ".headerImg",
-          toggleActions: "restart none none none ",
+          toggleActions: "play none none none ",
+          once: true
         },
       }
     );
@@ -66,8 +67,7 @@ const Cars = () => {
       <header
         className="headerImg h-36 md:h-64 bg-gray-300 text-2xl font-bold flex flex-col gap-1 justify-center items-center opacity-80"
         style={{
-          // /assets/images/about_us/aboutUsBg2.jpg
-          backgroundImage: "url(https://images.hdqwalls.com/wallpapers/dodge-challenger-angel-headlights-4k-n9.jpg)",
+          backgroundImage: "url(/assets/images/gallery_header.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

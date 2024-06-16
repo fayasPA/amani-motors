@@ -98,63 +98,6 @@ function GSAPslider() {
         }
       );
 
-      // gsap.fromTo(
-      //   `.price-${currentIndex}`,
-      //   {
-      //     x: -400,
-      //     y: 0,
-      //     borderRadius: "0%",
-      //     yoyo: false,
-      //     rotation: 0,
-      //     opacity: 0,
-      //   },
-      //   {
-      //     y: 0,
-      //     x: -200,
-      //     repeat: 0,
-      //     yoyo: false,
-      //     rotation: 0,
-      //     borderRadius: "0%",
-      //     duration: 1.2,
-      //     ease: "none",
-      //     stagger: 0.5,
-      //     scale: 1.2,
-      //     opacity: 1,
-      //     scrollTrigger: {
-      //       trigger: `.price-${currentIndex}`,
-      //       toggleActions: "restart none none none ",
-      //     },
-      //   }
-      // );
-
-      // gsap.fromTo(
-      //   `.model-${currentIndex}`,
-      //   {
-      //     x: -500,
-      //     y: 0,
-      //     borderRadius: "0%",
-      //     yoyo: false,
-      //     rotation: 0,
-      //     opacity: 0,
-      //   },
-      //   {
-      //     y: 0,
-      //     x: -300,
-      //     repeat: 0,
-      //     yoyo: false,
-      //     rotation: 0,
-      //     borderRadius: "0%",
-      //     duration: 1.2,
-      //     ease: "none",
-      //     stagger: 0.5,
-      //     scale: 1.2,
-      //     opacity: 1,
-      //     scrollTrigger: {
-      //       trigger: `.model-${currentIndex}`,
-      //       toggleActions: "restart none none none ",
-      //     },
-      //   }
-      // );
     }
   }, [currentIndex, bannerData]);
 

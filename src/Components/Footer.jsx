@@ -39,7 +39,8 @@ function Footer() {
         opacity: 1,
         scrollTrigger: {
           trigger: ".divfooter",
-          toggleActions: "restart none none none",
+          toggleActions: "play none none none",
+          once: true
         },
       }
     );
