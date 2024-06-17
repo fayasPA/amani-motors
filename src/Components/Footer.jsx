@@ -7,13 +7,16 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
   FaPhone,
+  FaWhatsapp,
 } from "react-icons/fa";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
+import Logo from "/assets/images/logo2.png"
+
 function Footer() {
   const phoneNumber = "+919037696969"
-  const email = "info@amanimotors.in"
+  const email = "info.amanimotors@gmail.com"
 
   useEffect(() => {
     gsap.fromTo(
@@ -34,7 +37,7 @@ function Footer() {
         rotation: 0,
         borderRadius: "0%",
         duration: 0.5,
-        ease: "none",
+        ease: "elastic.inOut",
         stagger: 0.1,
         opacity: 1,
         scrollTrigger: {
@@ -47,22 +50,32 @@ function Footer() {
   }, []);
 
   return (
-    <div className="bg-black text-white px-10 py-5 divfooter ">
+    <div className="bg-black text-white px-10 py-5 divfooter">
+
+      <div className="flex flex-col items-center rtl:space-x-reverse w-fit mb-5 footer">
+        <img src={Logo} className="w-14 h-w-14  md:w-12 md:h-w-12 rounded-xl logo " alt=" Logo" />
+        <div className='flex flex-col h-fit'>
+          <span className="italic font-serif logo self-center text-base md:text-lg font-bold whitespace-nowrap">AMANI MOTORS</span>
+          <p style={{ fontSize: '.5em' }} className="mt-[-5px] italic font-serif logo self-center font-thin whitespace-nowrap">Road To Luxury</p>
+        </div>
+      </div>
+
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Contact Information */}
-        <div className="md:text-base">
-          <h2 className="italic text-base md:text-lg font-bold mb-4 footer font-serif">AMANI MOTORS</h2>
+        <div className="md:text-base ">
+
+
           <p className="footer">
             Pipeline Rd, near AKSHAYA CENTER, Karimakkad, Thrikkakara, Edappally, Ernakulam, Kochi, Kerala 682021
           </p>
           <a href={`tel:${phoneNumber}`}>
-            <p className="flex items-center mt-4 footer">
-              <FaPhone className="mr-2" /> +91 9037696969
+            <p className="flex gap-2 items-center mt-4 footer">
+              <FaPhone className="" /> +91 9037696969
             </p>
           </a>
           <a href={`mailto:${email}`}>
-            <p className="flex items-center mt-2 footer">
-              <FaEnvelope className="mr-2" />info@amanimotors.in
+            <p className="flex gap-2 items-center mt-2 footer" style={{ fontSize: '.8em' }}>
+              <FaEnvelope className="" />info.amanimotors@gmail.com
             </p>
           </a>
         </div>
@@ -117,15 +130,18 @@ function Footer() {
 
       {/* Social Media Icons */}
       <div className="flex justify-center mt-3 space-x-4 footer">
+        <a href="https://wa.me/919037696969" target='blank'>
+          <FaWhatsapp className="w-6 h-6 cursor-pointer footer" />
+        </a>
         <a href="https://www.facebook.com/people/Amani-Motors/61555223155190/" target='blank'>
           <FaFacebook className="w-6 h-6 cursor-pointer footer" />
         </a>
         {/* <FaTwitter className="w-6 h-6 cursor-pointer footer" /> */}
-        <a href="https://www.instagram.com/amani_motors/" target='blank'>
-          <FaInstagram className="w-6 h-6 cursor-pointer footer" />
-        </a>
         <a href="https://www.youtube.com/watch?v=D3kcFp9i_cE" target='blank'>
           <FaYoutube className="w-6 h-6 cursor-pointer footer" />
+        </a>
+        <a href="https://www.instagram.com/amani_motors/" target='blank'>
+          <FaInstagram className="w-6 h-6 cursor-pointer footer" />
         </a>
       </div>
     </div>

@@ -3,6 +3,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      margin: {
+        '-5': '-5px',
+        '-10': '-10px',
+      },
       backgroundImage: {
         "custom-background":
           "url('https://wallpapercave.com/wp/wp5055251.jpg')",

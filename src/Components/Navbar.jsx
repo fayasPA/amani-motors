@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FaFacebook, FaInstagram, FaPhoneAlt, FaTwitter, FaYoutube } from "react-icons/fa";
-import Logo from "/assets/images/navbar_logo.jpeg"
+import { FaFacebook, FaInstagram, FaPhoneAlt, FaTwitter, FaYoutube, FaWhatsapp } from "react-icons/fa";
+import Logo from "/assets/images/logo2.png"
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import GradientButton from './Buttons/GradientButton';
 import './Buttons/GradientButton.css';
@@ -55,10 +55,11 @@ export default function Navbar() {
           ease: "none",
           stagger: 0.2,
           opacity: 1,
-          // scrollTrigger: {
-          //   trigger: ".divfooter",
-          //   toggleActions: "restart none none none",
-          // },
+          scrollTrigger: {
+            trigger: ".sm-navbar",
+            toggleActions: "play none none none",
+            once: true
+          },
         }
       );
     }
@@ -70,23 +71,29 @@ export default function Navbar() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 ">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <Link to="/" className="flex items-center rtl:space-x-reverse">
           <img src={Logo} className="w-12 h-w-12  md:w-16 md:h-16 rounded-xl logo " alt=" Logo" />
+          <div className='flex flex-col'>
           <span className="italic font-serif logo self-center text-lg md:text-2xl font-semibold whitespace-nowrap">AMANI MOTORS</span>
+          <p style={{fontSize: '.6em'}} className="italic mt-[-5px]  font-serif logo self-center font-thin whitespace-nowrap">Road To Luxury</p>
+          </div>
         </Link>
         {/* Logo */}
 
         <div className=" hidden md:flex ">
           <div className="flex justify-center gap-2">
+            <a href="https://wa.me/919037696969" target='blank'>
+              <FaWhatsapp size={20} className="text-white cursor-pointer" />
+            </a>
             <a href="https://www.facebook.com/people/Amani-Motors/61555223155190/" target='blank'>
               <FaFacebook size={20} className="text-white cursor-pointer" />
             </a>
             {/* <FaTwitter className="text-white w-6 h-6 cursor-pointer" /> */}
-            <a href="https://www.instagram.com/amani_motors/" target='blank'>
-              <FaInstagram size={20} className="text-white cursor-pointer" />
-            </a>
             <a href="https://www.youtube.com/watch?v=D3kcFp9i_cE" target='blank'>
               <FaYoutube size={20} className="text-white cursor-pointer" />
+            </a>
+            <a href="https://www.instagram.com/amani_motors/" target='blank'>
+              <FaInstagram size={20} className="text-white cursor-pointer" />
             </a>
             <a href={`tel:${phoneNumber}`} className='pl-1'>
               <p className="flex items-center text-white ">
@@ -167,7 +174,7 @@ export default function Navbar() {
                     <button>Search</button>
                   </div>
                 </li>
-                <li className="sm-navbar p-3 w-full text-xs">
+                <li className="sm-navbar p-3 px-7 w-full text-xs">
                   <NavLink to='/' onClick={() => handleNavClick('/')} className={({ isActive }) =>`${isActive ? 'scale-110 border-x-2' : ''} flex gap-5 justify-center items-start text-center`} >
                     <FaHome size={20} className='w-4 h-4' />
                     <span className=" ">HOME</span>

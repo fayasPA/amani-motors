@@ -1,5 +1,4 @@
 const development = true
-// console.log('@config.jsx', development);
 let urls;
 
 if (development) {
@@ -11,8 +10,8 @@ if (development) {
 } else {
   // Production urls
   urls = {
-    BASE_URL: "https://amanimotors.co.in/",
-    BASE_IMAGE_URL: "http://amanimotors.co.in/static",
+    BASE_URL: "https://amanimotors.co.in/myapp/",
+    BASE_IMAGE_URL: "https://amanimotors.in/static",
   };
 }
 
@@ -22,3 +21,4 @@ export const GET_BANNER_VEHICLES = 'get_banner_vehicles';
 export const GET_LATEST_VEHICLES = 'get_all_vehicles_homepage';
 export const GET_ALL_VEHICLES = 'get_stockcar_all';
 export const GET_VEHICLE_DETAILS = 'get_specific_vehicle';
+export const GET_YOUTUBE_LINKS = 'get_youtube_links';
