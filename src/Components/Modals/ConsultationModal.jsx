@@ -131,7 +131,7 @@ const ConsultationModal = () => {
           id="authentication-modal"
           tabIndex="-1"
           aria-hidden="true"
-          className="fixed inset-0 z-50 flex justify-center items-center w-full h-full bg-gray-800 bg-opacity-50"
+          className="fixed inset-0 z-40 flex justify-center items-center w-full h-full bg-gray-800 bg-opacity-50"
         >
           <div className="relative p-4 w-full max-w-md max-h-full">
             <div className="consultation-modal relative bg-white rounded-sm shadow md:overflow-y-auto max-h-[90vh]">

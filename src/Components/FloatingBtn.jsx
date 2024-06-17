@@ -1,11 +1,13 @@
 // FloatingBtn.js
 import React, { useEffect, useRef, useState } from 'react';
 import { FiPhone, FiMail, FiX } from 'react-icons/fi';
+import { TbPhonePlus } from "react-icons/tb";
+
 import { FaWhatsapp } from 'react-icons/fa';
 import gsap from 'gsap';
 
 const FloatingBtn = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
     const menuRef = useRef(null);
     const buttonRef = useRef(null);
   
@@ -47,7 +49,7 @@ const FloatingBtn = () => {
           onClick={toggleMenu}
           className="p-4 bg-blue-600 text-white rounded-full shadow-lg bg-gray-900 hover:bg-gray-800 transition duration-300 ease-in-out"
         >
-          {isOpen ? <FiX className="text-xl" /> : <FiPhone className="text-xl" />}
+          {isOpen ? <FiX className="text-xl" /> : <TbPhonePlus className="text-xl" />}
         </button>
       </div>
     );

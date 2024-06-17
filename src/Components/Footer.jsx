@@ -120,9 +120,9 @@ function Footer() {
         <div>
           <h2 className="text-lg font-bold mb-4 footer">Search by Category</h2>
           <ul className="space-y-2 font-extralight ">
-            <li className="md:text-xs footer">Search by City</li>
-            <li className="md:text-xs footer">Search by Year</li>
-            <li className="md:text-xs footer">Search by Color</li>
+            <li className="md:text-xs footer">Search by Make</li>
+            <li className="md:text-xs footer">Search by Vehicle Type</li>
+            <li className="md:text-xs footer">Search by Fuel Type</li>
             <li className="md:text-xs footer">Search by Price</li>
           </ul>
         </div>

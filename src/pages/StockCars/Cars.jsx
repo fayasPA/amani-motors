@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { axiosAPI } from "../../utils/axiosAPI";
 import { BASE_IMAGE_URL, GET_ALL_VEHICLES } from "../../utils/urls";
 import { FaRegCalendarAlt } from "react-icons/fa";
@@ -9,9 +9,29 @@ import { FaChevronRight } from "react-icons/fa";
 import { getNumberToCurrencyText } from "../../utils/helperFunctions";
 import gsap from "gsap/gsap-core";
 import { ScrollTrigger } from "gsap/all";
+import FilterSearch from "../../Components/FilterSearch";
 gsap.registerPlugin(ScrollTrigger);
 
+
+
 const Cars = () => {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const filters = {
+    brand: params.get('brand'),
+    car_type: params.get('car_type'),
+    fuel_type: params.get('fuel_type'),
+    min_price: params.get('min_price') && parseInt(params.get('min_price')),
+    max_price: params.get('max_price') && parseInt(params.get('max_price'))
+  };
+  const filterProps = {
+    ...(filters.brand && { brandSel: filters.brand }),
+    ...(filters.fuel_type && { fuelTypeSel: filters.fuel_type }),
+    ...(filters.car_type && { carTypeSel: filters.car_type }),
+    ...(filters.min_price && { minPriceSel: filters.min_price }),
+    ...(filters.max_price && { maxPriceSel: filters.max_price }),
+  };
+
   const axiosInstance = axiosAPI();
   const [data, setData] = useState([]);
   const [totalVehicleCount, setTotalVehicleCount] = useState(0);
@@ -49,10 +69,12 @@ const Cars = () => {
 
   useEffect(() => {
     get_all_vehicles();
-  }, []);
+    window.scrollTo(0, 0);
+  }, [location.search]);
   async function get_all_vehicles() {
     try {
-      const response = await axiosInstance.get(GET_ALL_VEHICLES);
+      const params = new URLSearchParams(location.search);
+      const response = await axiosInstance.get(GET_ALL_VEHICLES, { params });
       if (response.status === 200) {
         setData(response.data.vehicles);
         setTotalVehicleCount(response.data.totalcount)
@@ -77,6 +99,15 @@ const Cars = () => {
       </header>
 
       <div className="container mx-auto p-4 text-black bg-white ">
+
+
+        <div className='h-52 md:h-44  relative w-[95%] z-30 '>
+          <div className='absolute top-[-20%] w-full'>
+            <FilterSearch {...filterProps} />
+          </div>
+        </div>
+
+
         <div className="flex justify-start text-gray font-bold items-center text-2xl pb-10 ">
           Find Your Dream Car
         </div>

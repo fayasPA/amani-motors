@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import SecondHeader from './Components/SecondHeader'
 import Navbar from './Components/Navbar'
@@ -6,11 +6,28 @@ import Footer from './Components/Footer'
 import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
 import FloatingBtn from './Components/FloatingBtn'
+import Loader from './Components/Loader'
 
 const Layout = () => {
+  const [loaded, setLoaded] = useState(false);
+  const [exitLoader, setExitLoader] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setExitLoader(true);
+    }, 3000);
+  }, []);
+
   return (
     <div className='flex'>
+      <Loader
+        onExit={() => {
+          setLoaded(true);
+        }}
+      />
+      {loaded && (
       <FloatingBtn />
+      )}
       <ToastContainer />
       <div className=' hidden md:flex w-20'>
         <SecondHeader />
@@ -18,8 +35,8 @@ const Layout = () => {
       <div className='flex-1'>
         <Navbar />
         <div className=''>
-        <Outlet />
-        <Footer />
+          <Outlet />
+          <Footer />
         </div>
       </div>
     </div>
