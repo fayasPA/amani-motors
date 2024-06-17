@@ -15,7 +15,9 @@ const carBrands = [
   "Mercedes-Benz"
 ];
 const model = [
-  "Anymodel"
+  "Hatchback",
+  "Sedan",
+  "SUV",
 ];
 const status = [
   "All",
@@ -29,7 +31,7 @@ function FilterSearch() {
     <div className='p-5 text-black w-full bg-white border-b-2 border-b-gray-300 shadow-lg'>
       <div className='p-3 flex justify-around w-full md:w-[70%] '>
         <DropdownButton options={carBrands} type={'brand'} />
-        <DropdownButton type={'model'} options={model} />
+        <DropdownButton type={'body_type'} options={model} />
       </div>
       <div className='w-full flex flex-col md:flex-row items-start md:items-center '>
         <div className=' w-full md:w-[70%] '>

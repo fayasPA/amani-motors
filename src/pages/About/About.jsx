@@ -59,7 +59,7 @@ const About = () => {
         stagger: 0.3,
         opacity: 1,
         scrollTrigger: {
-          trigger: ".GSAPabt",
+          trigger: ".content-gsap-trigger",
           toggleActions: "play none none none ",
           once:true
         },
@@ -173,7 +173,7 @@ const About = () => {
 
         </div>
 
-        <div className="flex flex-col text-center text-black justify-start GSAPabt">
+        <div className="flex flex-col text-center text-black justify-start content-gsap-trigger">
           <p className="font-light">Experience the</p>
           <h2 className="text-lg md:text-xl font-bold content-text">
             AMANI MOTORS DIFFERENCE

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FaFacebook, FaInstagram, FaPhoneAlt, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaPhoneAlt, FaTwitter, FaYoutube, FaWhatsapp } from "react-icons/fa";
 import Logo from "/assets/images/logo2.png"
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import GradientButton from './Buttons/GradientButton';
@@ -82,15 +82,18 @@ export default function Navbar() {
 
         <div className=" hidden md:flex ">
           <div className="flex justify-center gap-2">
+            <a href="https://wa.me/919037696969" target='blank'>
+              <FaWhatsapp size={20} className="text-white cursor-pointer" />
+            </a>
             <a href="https://www.facebook.com/people/Amani-Motors/61555223155190/" target='blank'>
               <FaFacebook size={20} className="text-white cursor-pointer" />
             </a>
             {/* <FaTwitter className="text-white w-6 h-6 cursor-pointer" /> */}
-            <a href="https://www.instagram.com/amani_motors/" target='blank'>
-              <FaInstagram size={20} className="text-white cursor-pointer" />
-            </a>
             <a href="https://www.youtube.com/watch?v=D3kcFp9i_cE" target='blank'>
               <FaYoutube size={20} className="text-white cursor-pointer" />
+            </a>
+            <a href="https://www.instagram.com/amani_motors/" target='blank'>
+              <FaInstagram size={20} className="text-white cursor-pointer" />
             </a>
             <a href={`tel:${phoneNumber}`} className='pl-1'>
               <p className="flex items-center text-white ">

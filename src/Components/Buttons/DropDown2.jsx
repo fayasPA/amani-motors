@@ -4,8 +4,8 @@ const DropdownButton = ({ options, type = null }) => {
   let dropDownPlaceholder = 'Select';
   if (type === 'brand') {
     dropDownPlaceholder = 'Any Brand'
-  } else if (type === 'model') {
-    dropDownPlaceholder = 'Any Model'
+  } else if (type === 'body_type') {
+    dropDownPlaceholder = 'Any Body Type'
   }
 
   const [selectedOption, setSelectedOption] = useState('');
