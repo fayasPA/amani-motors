@@ -16,28 +16,29 @@ gsap.registerPlugin(ScrollTrigger);
 function SecondHeader() {
   useEffect(() => {
     gsap.fromTo(
-      ".comp",
+      ".sid-nav-bar-content",
       {
-        x: 0,
-        borderRadius: "0%",
-        yoyo: false,
-        rotation: 0,
+        x: '-100%',
+        y: 0,
+        yoyo: true,
+        rotation: 45,
         opacity: 0,
       },
       {
         x: 0,
+        y: 0,
         repeat: 0,
         delay: 0.9,
         yoyo: false,
         rotation: 0,
-        borderRadius: "25%",
         duration: 0.7,
-        ease: "none",
+        ease: "power1.in",
         stagger: 0.3,
         opacity: 1,
         scrollTrigger: {
-          trigger: ".comp",
-          toggleActions: "restart none none none ",
+          trigger: ".nav-bar-div",
+          toggleActions: "play none none none ",
+          once: true
         },
       }
     );
@@ -56,14 +57,14 @@ function SecondHeader() {
   }, []);
 
   return (
-    <div className="w-20 h-screen bg-red-600">
+    <div className="w-20 h-screen bg-red-600 nav-bar-div">
       <div
         className={` hidden md:flex fixed bg-gray-900 flex-col h-screen w-20 justify-between text-xs md:text-sm`}
       >
         <NavLink
           to="/"
           className={({ isActive }) =>
-            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-zinc flex flex-col h-full gap-1 justify-center items-center`
+            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} sid-nav-bar-content hover:text-white px-1 py-2 hover:bg-zinc flex flex-col h-full gap-1 justify-center items-center`
           }
         >
           <FaHome className="text-xl " />
@@ -72,7 +73,7 @@ function SecondHeader() {
         <NavLink
           to="/vehicles"
           className={({ isActive }) =>
-            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-zinc flex flex-col gap-1 h-full justify-center items-center`
+            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} sid-nav-bar-content hover:text-white px-1 py-2 hover:bg-zinc flex flex-col gap-1 h-full justify-center items-center`
           }
         >
           <FaCarSide className="text-xl " />
@@ -81,7 +82,7 @@ function SecondHeader() {
         <NavLink
           to="/sellcar"
           className={({ isActive }) =>
-            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
+            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} sid-nav-bar-content hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
           }
         >
           <FaCar className="text-xl " />
@@ -90,7 +91,7 @@ function SecondHeader() {
         {/* <NavLink
           to="/showroom"
           className={({ isActive }) =>
-            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
+            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} sid-nav-bar-content hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
           }
         >
           <FaShop className="text-xl " />
@@ -99,7 +100,7 @@ function SecondHeader() {
         <NavLink
           to="/gallery"
           className={({ isActive }) =>
-            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
+            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} sid-nav-bar-content hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
           }
         >
           <FaImage className="text-xl " />
@@ -108,7 +109,7 @@ function SecondHeader() {
         {/* <NavLink
           to="/insurance"
           className={({ isActive }) =>
-            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
+            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} sid-nav-bar-content hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
           }
         >
           <FaHelmetSafety className="text-xl " />
@@ -117,7 +118,7 @@ function SecondHeader() {
         <NavLink
           to="/about"
           className={({ isActive }) =>
-            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
+            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} sid-nav-bar-content hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
           }
         >
           <FaHelmetSafety className="text-xl " />
@@ -126,7 +127,7 @@ function SecondHeader() {
         {/* <NavLink
           to="/emi"
           className={({ isActive }) =>
-            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
+            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} sid-nav-bar-content hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
           }
         >
           <FaCalculator className="text-xl " />
