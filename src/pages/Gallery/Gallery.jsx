@@ -2,14 +2,30 @@ import React, { useEffect, useState } from 'react'
 import YoutubePlayer from './YoutubePlayer'
 import { ScrollTrigger } from "gsap/all";
 import { gsap } from 'gsap/gsap-core';
+import { axiosAPI } from '../../utils/axiosAPI';
+import { GET_YOUTUBE_LINKS } from '../../utils/urls';
 gsap.registerPlugin(ScrollTrigger);
 
 const Gallery = () => {
+  const axiosInstance = axiosAPI();
+const [data, setData] = useState([]);
+  useEffect(() => {
+    get_youtube_data();
+  }, []);
+  async function get_youtube_data() {
+    try {
+      const response = await axiosInstance.get(GET_YOUTUBE_LINKS);
+      if (response.status === 200) {
+        console.log('YOUTUBE', response.data)
+        setData(response.data);
+      }
+    } catch (error) {
+      console.log("---------BANNER_ERROR", error);
+    }
+  }
+    
     useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [])
-
-    useEffect(() => {
+      window.scrollTo(0, 0);
         gsap.fromTo(
             ".gallery-header",
             {
@@ -37,40 +53,8 @@ const Gallery = () => {
               },
             }
           );
-
-          gsap.fromTo(
-            ".content-text",
-            {
-              y: 0,
-              borderRadius: "0%",
-              yoyo: false,
-              rotation: 0,
-              opacity: 0,
-            },
-            {
-              y: 0,
-              repeat: 0,
-              delay: 1,
-              yoyo: false,
-              rotation: 0,
-              borderRadius: "0%",
-              duration: 1,
-              ease: "none",
-              stagger: 0.3,
-              opacity: 1,
-              scrollTrigger: {
-                trigger: ".GSAPabt",
-                toggleActions: "play none none none ",
-                once: true
-              },
-            }
-          );
       }, [])
-    const [data, setData] = useState([
-        { id: 1, url: "https://www.youtube.com/watch?v=TmUYSgiyKnc&list=PLTLfwkMSvQT7rhamz_4IcolVKAFsvVF9j" },
-        { id: 2, url: "https://www.youtube.com/watch?v=r1xs8hBOAc4&list=PLTLfwkMSvQT7rhamz_4IcolVKAFsvVF9j&index=2" },
-        { id: 3, url: "https://www.youtube.com/watch?v=UDubsWD0LRE&list=PLTLfwkMSvQT7rhamz_4IcolVKAFsvVF9j&index=3" }
-    ]);
+      
     // console.log("*******WORKING", response.data.vehicle);
     return (
         <div className='h-auto'>
@@ -92,7 +76,7 @@ const Gallery = () => {
 
                         {data.map((youtube, index) => (
                             <div key={index} className="h-64 md:h-80 bg-cover group rounded-3xl bg-center overflow-hidden mx-auto cursor-pointer">
-                                <YoutubePlayer url={youtube.url} />
+                                <YoutubePlayer url={youtube.video_link} />
                             </div>
                         ))}
 
