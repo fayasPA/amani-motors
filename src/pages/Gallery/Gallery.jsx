@@ -16,7 +16,6 @@ const Gallery = () => {
     try {
       const response = await axiosInstance.get(GET_YOUTUBE_LINKS);
       if (response.status === 200) {
-        console.log('YOUTUBE', response.data)
         setData(response.data);
       }
     } catch (error) {

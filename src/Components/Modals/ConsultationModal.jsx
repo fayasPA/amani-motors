@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { POST_CONSULTATION_FORM } from '../../utils/urls';
 
 const ConsultationModal = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -70,8 +71,7 @@ const ConsultationModal = () => {
       console.log("FormSubmitted", formValues)
       try {
         await toast.promise(
-          axios.post(
-            'https://script.google.com/macros/s/AKfycbzEqZZt-ovZ1-9Ri62fWbbl_mEBtZ_qkEbRAhZlV5OIk4cRwinfybnUTL_K8yoh7dWyoA/exec',
+          axios.post(POST_CONSULTATION_FORM,
             new URLSearchParams(formValues).toString()
           ),
           {
@@ -131,7 +131,7 @@ const ConsultationModal = () => {
           id="authentication-modal"
           tabIndex="-1"
           aria-hidden="true"
-          className="fixed inset-0 z-50 flex justify-center items-center w-full h-full bg-gray-800 bg-opacity-50"
+          className="fixed inset-0 z-40 flex justify-center items-center w-full h-full bg-gray-800 bg-opacity-50"
         >
           <div className="relative p-4 w-full max-w-md max-h-full">
             <div className="consultation-modal relative bg-white rounded-sm shadow md:overflow-y-auto max-h-[90vh]">

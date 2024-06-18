@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FaFacebook, FaInstagram, FaPhoneAlt, FaTwitter, FaYoutube, FaWhatsapp } from "react-icons/fa";
 import Logo from "/assets/images/logo2.png"
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import GradientButton from './Buttons/GradientButton';
-import './Buttons/GradientButton.css';
 import gsap from "gsap/gsap-core";
 import { ScrollTrigger } from 'gsap/all';
 import {
@@ -163,7 +161,9 @@ export default function Navbar() {
           <div className="relative mt-3 md:hidden">
             <div className='flex'>
               <ul className=" p-4 font-bold  uppercase h-full flex flex-col justify-center items-center gap-7 w-full text-white">
-                <li className="sm-navbar p-3 w-full text-xs">
+                
+                {/* Search field */}
+                {/* <li className="sm-navbar p-3 w-full text-xs">
                   <div className='flex gap-5'>
                     <input
                       type="text"
@@ -173,7 +173,7 @@ export default function Navbar() {
                     />
                     <button>Search</button>
                   </div>
-                </li>
+                </li> */}
                 <li className="sm-navbar p-3 px-7 w-full text-xs">
                   <NavLink to='/' onClick={() => handleNavClick('/')} className={({ isActive }) =>`${isActive ? 'scale-110 border-x-2' : ''} flex gap-5 justify-center items-start text-center`} >
                     <FaHome size={20} className='w-4 h-4' />

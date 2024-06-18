@@ -131,3 +131,11 @@
   --toastify-toast-width: 250px;
   --toastify-font-family: 'Josefin Sans';
 }
+
+.step.active {
+  color: #ffff  /* Active step color */
+}
+
+.step.inactive {
+  color: rgb(134, 131, 131); /* Inactive step color */
+}

@@ -5,11 +5,11 @@ import '../../assets/styles/rangeSliderStyle.css'
 import { getNumberToCurrencyText } from "../../utils/helperFunctions";
 
 
-const RangeSliderComponent = () => {
-  const [value, setValue] = useState([1000000, 9000000]);
+const RangeSliderComponent = ({ min, max, setRange, initialValue }) => {
 
-  const handleChange = (range) => {
-    setValue(range);
+  const handleChange = (selectedRange) => {
+    // console.log(selectedRange)
+    setRange(selectedRange);
   };
 
   return (
@@ -19,17 +19,17 @@ const RangeSliderComponent = () => {
         <span style={{fontSize: '.8em'}} className=" whitespace-nowrap">PRICE RANGE</span>
         <div className="range-slider-div flex flex-col w-full">
           <RangeSlider 
-            min={100000} 
-            max={40000000} 
-            defaultValue={value}  
-            step={10000} 
+            min={min}
+            max={max} 
+            value={initialValue}
+            step={[20000, 20000]} 
             className=" border border-gray-200 range-slider-component" 
             id="range-slider-component" 
             onInput={handleChange} 
           />
           <div style={{fontSize: '.8em'}} className="flex justify-between pt-3 ">
-            <span>{getNumberToCurrencyText(value[0])}</span>
-            <span>{getNumberToCurrencyText(value[1])}</span>
+            <span>{getNumberToCurrencyText(initialValue[0])}</span>
+            <span>{getNumberToCurrencyText(initialValue[1])}</span>
           </div>
         </div>
       </div>

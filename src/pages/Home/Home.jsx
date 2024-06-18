@@ -1,5 +1,4 @@
 import React from "react";
-import { SwipeCarousel } from "../../Components/Carousel";
 import CarCards from "../../Components/CarCards";
 import LocomotiveScroll from "locomotive-scroll";
 import GSAPslider from "../../Components/GSAPslider";

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+import { POST_SELL_VEHICLE_FORM } from '../utils/urls';
 
 const ThreeStepForm = () => {
   const [step, setStep] = useState(1);
@@ -91,8 +92,7 @@ const ThreeStepForm = () => {
           Mobile: formValues.mobile,
         };
         await toast.promise(
-          axios.post(
-            'https://script.google.com/macros/s/AKfycbxy4NYEBAyEeb8GqIOCx41pn4e8Oz2KgnL1PiCjGkp-06l0ABV3YHO48H8kgvnCB91VVA/exec',
+          axios.post(POST_SELL_VEHICLE_FORM,
             new URLSearchParams(transformedValues).toString()
           ),
           {
@@ -162,15 +162,15 @@ const ThreeStepForm = () => {
     <div className="flex justify-center items-center  w-full pb-8 md:pb-10">
       <div className="w-4/5 md:w-3/5 bg-black border-[1px] p-4 md:p-8 shadow-md rounded ">
         <div className="flex justify-between mb-6">
-          <div className={`step ${step === 1 ? 'active' : ''}`}>1 Car Details</div>
-          <div className={`step ${step === 2 ? 'active' : ''}`}>2 Personal Details</div>
+          <div className={`step ${step === 1 ? 'active' : 'inactive'}`}>1 Car Details</div>
+          <div className={`step ${step === 2 ? 'active' : 'inactive'}`}>2 Personal Details</div>
         </div>
         {step === 1 && renderCarDetailsForm()}
         {step === 2 && renderPersonalDetailsForm()}
         <div className="flex justify-between mt-6">
-          {step > 1 && <button onClick={prevStep} className="btn">Previous</button>}
-          {step < 2 && <button onClick={nextStep} className="btn">Next</button>}
-          {step === 2 && <button onClick={handleSubmit} className="btn">Submit</button>}
+          {step > 1 && <button onClick={prevStep} className="bg-gray-900 hover:bg-gray-700 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-gray-100 hover:border-transparent rounded ">Previous</button>}
+          {step < 2 && <button onClick={nextStep} className="bg-gray-900 hover:bg-gray-700 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-gray-100 hover:border-transparent rounded">Next</button>}
+          {step === 2 && <button onClick={handleSubmit} className="bg-gradient-to-r from-gray-800 to-gray text-white font-semibold p-1 md:p-2 px-7 md:px-10 rounded-md">Submit</button>}
         </div>
       </div>
     </div>
