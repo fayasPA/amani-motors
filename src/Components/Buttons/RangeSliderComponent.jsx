@@ -21,7 +21,7 @@ const RangeSliderComponent = ({ min, max, setRange, initialValue }) => {
           <RangeSlider 
             min={min}
             max={max} 
-            defaultValue={initialValue}
+            value={initialValue}
             step={[20000, 20000]} 
             className=" border border-gray-200 range-slider-component" 
             id="range-slider-component" 

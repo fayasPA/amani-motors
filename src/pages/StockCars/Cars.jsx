@@ -24,6 +24,8 @@ const Cars = () => {
     min_price: params.get('min_price') && parseInt(params.get('min_price')),
     max_price: params.get('max_price') && parseInt(params.get('max_price'))
   };
+
+  const hasFilters = Object.values(filters).some(filter => filter !== null && filter !== '');
   const filterProps = {
     ...(filters.brand && { brandSel: filters.brand }),
     ...(filters.fuel_type && { fuelTypeSel: filters.fuel_type }),
@@ -77,7 +79,7 @@ const Cars = () => {
       const response = await axiosInstance.get(GET_ALL_VEHICLES, { params });
       if (response.status === 200) {
         setData(response.data.vehicles);
-        setTotalVehicleCount(response.data.totalcount)
+        setTotalVehicleCount(response.data.total_count)
       }
     } catch (error) {
       console.log("---------BANNER_ERROR", error);
@@ -108,11 +110,19 @@ const Cars = () => {
         </div>
 
 
-        <div className="flex justify-start text-gray font-bold items-center text-2xl pb-10 ">
-          Find Your Dream Car
+        <div className="flex justify-between text-gray font-bold items-center px-5 ">
+          <span className="text-base md:text-2xl ">Find Your Dream Car</span>
+          {hasFilters && (
+            <Link to={'/vehicles'} className='w-fit flex items-center font-semibold '>
+              <div className='flex bg-gradient-to-r from-gray-800 to-gray text-white font-semibold p-1 md:p-3 rounded-sm gap-1'>
+                <p className=' text-xs'>View All Cars</p>
+                <FaChevronRight size={10} className=' ' />
+              </div>
+            </Link>
+          )}
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-          {data.map((product, index) => (
+          {(data && data.length) > 0 ? (data.map((product, index) => (
             <div key={index} className=" p-4 rounded-lg shadow-lg">
               <NavLink to={`/vehicles/${product.id}`} >
                 <img src={`${BASE_IMAGE_URL}${product.image}`} alt={product.image} className="w-full h-48 object-cover rounded-md mb-4 transform transition-transform duration-300 hover:scale-105" />
@@ -142,7 +152,11 @@ const Cars = () => {
                 <Link to={`/vehicles/${product.id}`} className="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">See Detail</Link>
               </div>
             </div>
-          ))}
+          ))) : (
+            <div className="p-5 flex text-zinc self-center">
+              <p className="text-base md:text-lg font-semibold">No Result Found.</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
