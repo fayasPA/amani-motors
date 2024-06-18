@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FaFacebook, FaInstagram, FaPhoneAlt, FaTwitter, FaYoutube, FaWhatsapp } from "react-icons/fa";
 import Logo from "/assets/images/logo2.png"
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import GradientButton from './Buttons/GradientButton';
-import './Buttons/GradientButton.css';
 import gsap from "gsap/gsap-core";
 import { ScrollTrigger } from 'gsap/all';
 import {

@@ -1,13 +1,4 @@
-import { useState } from 'react'
 import React from 'react';
-import Navbar from './Components/Navbar';
-import { SwipeCarousel } from './Components/Carousel';
-import SecondHeader from './Components/SecondHeader';
-import FilterSearch from './Components/FilterSearch';
-import CarCards from './Components/CarCards';
-import Footer from './Components/Footer';
-import GradientButton from './Components/Buttons/GradientButton';
-import LocomotiveScroll from "locomotive-scroll";
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Layout from './Layout';
@@ -19,7 +10,6 @@ import Gallery from './pages/Gallery/Gallery';
 
 
 function App() {
-
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -35,7 +25,6 @@ function App() {
       </Route>
     )
   );
-
 
   return (
     <React.StrictMode>
