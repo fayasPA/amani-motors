@@ -40,6 +40,7 @@ function GSAPslider() {
 
   useEffect(() => {
     if (bannerData.length > 0) {
+      // car image gsap animation
       gsap.fromTo(
         `.car-${currentIndex}`,
         {
@@ -59,16 +60,17 @@ function GSAPslider() {
           borderRadius: "0%",
           duration: 2,
           ease: "none",
-          stagger: 0.5,
           opacity: 1,
-          // scale: 2,
-          scrollTrigger: {
-            trigger: `.car-${currentIndex}`,
-            toggleActions: "restart none none none ",
-          },
+          // scrollTrigger: {
+          //   trigger: `.car-${currentIndex}`,
+          //   toggleActions: "restart none none none ",
+          // },
         }
       );
 
+      // car image gsap animation ends
+
+      // car details gsap animation
       gsap.fromTo(
         `.car-name-${currentIndex}`,
         {
@@ -77,7 +79,8 @@ function GSAPslider() {
           borderRadius: "0%",
           yoyo: false,
           rotation: 0,
-          opacity: 5,
+          opacity: 0,
+          scale: 1.5
         },
         {
           x: 0,
@@ -86,10 +89,10 @@ function GSAPslider() {
           yoyo: false,
           rotation: 0,
           borderRadius: "0%",
-          duration: 0.5,
-          ease: "power1.in",
-          stagger: .5,
-          // scale: 1.5,
+          duration: 0.8,
+          ease: "bounce.out",
+          stagger: .3,
+          scale: 1,
           opacity: 1,
           // scrollTrigger: {
           //   trigger: `.car-${currentIndex}`,
@@ -103,50 +106,50 @@ function GSAPslider() {
 
   return (
     <div className="relative w-full h-80 md:h-96 bg-custom-background bg-cover bg-center">
-  {/* Overlay for transparency */}
-  <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-  {/* Ensure children are above the overlay */}
-  <div className="relative flex justify-between w-full h-full overflow-hidden z-20">
-    {bannerData.map((banner, index) => (
-      <div className={`w-full h-full flex justify-between ${currentIndex === index ? "block" : "hidden"}`} key={index}>
-        <div className="w-1/2 h-full flex flex-col justify-center items-center gap-2 md:gap-5 pl-10 md:pl-20">
-          <div className="w-full flex justify-start text-white text-xs md:text-sm font-extrabold name">
-            <div className="w-1/2 md:w-1/3 border-x-2 flex justify-center">
-              <div className="w-fit">
-              <p className="text-[#fff]" style={{fontSize: '0.7em'}}>{capitalizeWord(banner.car_type)}</p>
+      {/* Overlay for transparency */}
+      <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+      {/* Ensure children are above the overlay */}
+      <div className="relative flex justify-between w-full h-full overflow-hidden z-20">
+        {bannerData.map((banner, index) => (
+        <div className={`w-full h-full flex justify-between ${currentIndex === index ? "block" : "hidden"}`} key={index}>
+          <div className="w-1/2 h-full flex flex-col justify-center items-center gap-2 md:gap-5 pl-10 md:pl-20">
+            <div className="w-full flex justify-start text-white text-xs md:text-sm font-extrabold name">
+              <div className="w-1/2 md:w-1/3 border-x-2 flex justify-center">
+                <div className="w-fit">
+                  <p className="text-[#fff]" style={{ fontSize: '0.7em' }}>{capitalizeWord(banner.car_type)}</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="w-full flex flex-col justify-start h-auto">
-            <p className={`car-name-${index} text-white text-xl md:text-2xl font-extrabold name`}>
-              {capitalizeFirstLetters(`${banner.brand} ${banner.model}`)}
-            </p>
-            <div className="flex gap-2 md:gap-4">
-              <p className={`car-name-${index} text-slate-500 text-xs md:text-sm font-semibold font-serif price`}>
-                MODEL {banner.year}
+            <div className="w-full flex flex-col justify-start h-auto">
+              <p className={`car-name-${index} text-white text-xl md:text-2xl font-extrabold name`}>
+                {capitalizeFirstLetters(`${banner.brand} ${banner.model}`)}
               </p>
-              <p className={`car-name-${index} text-slate-500 text-xs md:text-sm font-bold price`}>
-                {getNumberToCurrencyText(banner.price)}
-              </p>
+              <div className="flex gap-2 md:gap-4">
+                <p className={`car-name-${index} text-slate-500 text-xs md:text-sm font-semibold font-serif price`}>
+                  MODEL {banner.year}
+                </p>
+                <p className={`car-name-${index} text-slate-500 text-xs md:text-sm font-bold price`}>
+                  {getNumberToCurrencyText(banner.price)}
+                </p>
+              </div>
+            </div>
+            <div className="w-full flex justify-start">
+              <NavLink to={`/vehicles/${banner.id}`}>
+                <button onClick={() => console.log("FAYAS", banner.id)} className="bg-gradient-to-r from-gray-800 to-gray text-white font-semibold px-4 rounded-sm w-full text-xs md:text-sm">
+                  See Details
+                </button>
+              </NavLink>
             </div>
           </div>
-          <div className="w-full flex justify-start">
-            <NavLink to={`/vehicles/${banner.id}`}>
-              <button onClick={() => console.log("FAYAS", banner.id)} className="bg-gradient-to-r from-gray-800 to-gray text-white font-semibold px-4 rounded-sm w-full text-xs md:text-sm">
-                See Details
-              </button>
-            </NavLink>
+          <div className="w-1/2 h-full flex justify-start items-center">
+            <div className={`w-auto h-auto car-${index}`}>
+              <img className="w-full h-auto" src={`${BASE_IMAGE_URL}${banner.bannerImage}`} alt={banner.model} />
+            </div>
           </div>
         </div>
-        <div className="w-1/2 h-full flex justify-start items-center">
-          <div className={`w-auto h-auto car-${index}`}>
-            <img className="w-full h-auto" src={`${BASE_IMAGE_URL}${banner.bannerImage}`} alt={banner.model} />
-          </div>
-        </div>
+      ))}
       </div>
-    ))}
-  </div>
-</div>
+    </div>
 
   );
 }

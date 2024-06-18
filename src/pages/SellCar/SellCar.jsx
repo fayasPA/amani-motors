@@ -54,7 +54,7 @@ function SellCar() {
         yoyo: false,
         rotation: 0,
         borderRadius: "0%",
-        duration: 1,
+        duration: 0.5,
         ease: "none",
         stagger: 0.3,
         opacity: 1,
