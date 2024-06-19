@@ -66,7 +66,7 @@ function Footer() {
 
 
           <p className="footer">
-            Pipeline Rd, near AKSHAYA CENTER, Karimakkad, Thrikkakara, Edappally, Ernakulam, Kochi, Kerala 682021
+            Pipeline Rd, Karimakkad, Thrikkakara, Edappally, Ernakulam, Kochi, Kerala 682021
           </p>
           <a href={`tel:${phoneNumber}`}>
             <p className="flex gap-2 items-center mt-4 footer">
