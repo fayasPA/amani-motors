@@ -144,6 +144,32 @@ function Footer() {
           <FaInstagram className="w-6 h-6 cursor-pointer footer" />
         </a>
       </div>
+
+      <div className="container flex flex-col pt-10 items-center ">
+        <div className="flex flex-col gap-1 w-full pb-4">
+          <div style={{height: '3px'}} className=" w-full bg-gray-600"></div>
+          <div style={{height: '3px'}} className=" w-full bg-gray-600"></div>
+          <div style={{height: '3px'}} className=" w-full bg-gray-600"></div>
+        </div>
+        <div className="text-xs md:text-sm w-full flex flex-col  items-center justify-between">
+        <div className="flex items-center space-x-2">
+          <p className="scale-110">&copy; 2024 Amani Motors All Rights Reserved.</p>
+        </div>
+        <div className="flex items-center space-x-2 mt-4 sm:mt-0">
+        <p className="text-sm scale-95">
+            Designed & Developed by 
+            <a href="https://wa.me/919496715606" className="text-blue-400 ml-1" target="_blank" rel="noopener noreferrer">
+              Fayas
+            </a> & 
+            <a href="https://wa.me/919037146943" className="text-blue-400 ml-1" target="_blank" rel="noopener noreferrer">
+              Almas
+            </a>
+          </p>
+        </div>
+        </div>
+      </div>
+
+
     </div>
   );
 }
