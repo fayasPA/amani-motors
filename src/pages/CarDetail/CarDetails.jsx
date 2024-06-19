@@ -146,7 +146,7 @@ const CarDetails = () => {
                             <div className="mt-8 flow-root sm:mt-12">
                                 <ul className="space-y-2 columns-3 footer font-light">
                                     <li className="text-xs md:text-base"><span className='font-semibold'>Condition:</span> Used</li>
-                                    <li className="text-xs md:text-base"><span className='font-semibold'>Year:</span> {data.year}</li>
+                                    <li className="text-xs md:text-base"><span className='font-semibold'>Year Of:</span> {data.year}</li>
                                     <li className="text-xs md:text-base"><span className='font-semibold'>Engine Size:</span> {data.engine_size?? 'N/A'}</li>
                                     <li className="text-xs md:text-base"><span className='font-semibold'>Color:</span> {data.color?? 'N/A'}</li>
                                     <li className="text-xs md:text-base"><span className='font-semibold'>Engine Type:</span> {data.fuel_type ?? 'N/A'}</li>
