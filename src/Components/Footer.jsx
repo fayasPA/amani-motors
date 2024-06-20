@@ -56,7 +56,7 @@ function Footer() {
         <img src={Logo} className="w-14 h-w-14  md:w-12 md:h-w-12 rounded-xl logo " alt=" Logo" />
         <div className='flex flex-col h-fit'>
           <span className="italic font-serif logo self-center text-base md:text-lg font-bold whitespace-nowrap">AMANI MOTORS</span>
-          <p style={{ fontSize: '.5em' }} className="mt-[-5px] italic font-serif logo self-center font-thin whitespace-nowrap">Road To Luxury</p>
+          <p style={{ fontSize: '.5em' }} className="mt-[-5px] italic font-serif logo self-center font-thin whitespace-nowrap">The Road To Luxury</p>
         </div>
       </div>
 
@@ -156,7 +156,7 @@ function Footer() {
           <p className="scale-110">&copy; 2024 Amani Motors All Rights Reserved.</p>
         </div>
         <div className="flex items-center space-x-2 mt-4 sm:mt-0">
-        <p className="text-sm scale-95">
+        <p className="text-sm scale-90 md:scale-95">
             Designed & Developed by 
             <a href="https://wa.me/919496715606" className="text-blue-400 ml-1" target="_blank" rel="noopener noreferrer">
               Fayas

@@ -73,7 +73,7 @@ export default function Navbar() {
           <img src={Logo} className="w-12 h-w-12  md:w-16 md:h-16 rounded-xl logo " alt=" Logo" />
           <div className='flex flex-col'>
           <span className="italic font-serif logo self-center text-lg md:text-2xl font-semibold whitespace-nowrap">AMANI MOTORS</span>
-          <p style={{fontSize: '.6em'}} className="italic mt-[-5px]  font-serif logo self-center font-thin whitespace-nowrap">Road To Luxury</p>
+          <p style={{fontSize: '.6em'}} className="italic mt-[-5px]  font-serif logo self-center font-thin whitespace-nowrap">The Road To Luxury</p>
           </div>
         </Link>
         {/* Logo */}

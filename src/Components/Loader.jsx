@@ -78,7 +78,7 @@ const Loader = ({ onExit }) => {
             style={{ fontSize: '.8em', opacity: 0 }} // Ensure initial opacity is 0 for GSAP animation
             className="mt-[-5px] italic font-serif self-center font-thin whitespace-nowrap"
           >
-            Road To Luxury
+            The Road To Luxury
           </p>
         </div>
       </div>

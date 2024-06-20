@@ -25,7 +25,7 @@ function App() {
       </Route>
     )
   );
-
+  
   return (
     <React.StrictMode>
       <RouterProvider router={router} />
