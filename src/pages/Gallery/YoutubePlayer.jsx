@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import YouTube from 'react-youtube';
+import { Oval } from 'react-loader-spinner'; // Import the loader component
 
 const YoutubePlayer = ({url}) => {
+  const [loading, setLoading] = useState(true);
     const getVideoIdFromUrl = (url) => {
         const urlObj = new URL(url);
         return urlObj.searchParams.get("v");
@@ -9,6 +11,7 @@ const YoutubePlayer = ({url}) => {
       
     const onPlayerReady = (event) => {
         // access to player in all event handlers via event.target
+        setLoading(false);
         event.target.pauseVideo();
       }
 
@@ -21,7 +24,25 @@ const YoutubePlayer = ({url}) => {
     },
   };
 
-  return <YouTube videoId={getVideoIdFromUrl(url)} style={{height: '100%', width: '100%'}} opts={opts} onReady={onPlayerReady} />;
+  return (
+    <div className='w-full h-full relative'>
+    {loading && ( // Show loader while loading is true
+          <div className='absolute right-[41%] top-[41%] '>
+            <Oval
+                    height={50}
+                    width={50}
+                    color="white"
+                    visible={true}
+                    ariaLabel='oval-loading'
+                    secondaryColor="gray"
+                    strokeWidth={2}
+                    strokeWidthSecondary={2}
+                  />
+          </div>
+      )}
+      <YouTube videoId={getVideoIdFromUrl(url)} style={{height: '100%', width: '100%'}} opts={opts} onReady={onPlayerReady} />
+    </div>
+)
 }
 
 export default YoutubePlayer;

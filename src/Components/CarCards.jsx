@@ -60,10 +60,6 @@ function CarCards() {
                 <span className='text-gray font-medium'>{product.kms} KMS</span>
               </div>
             </div>
-            {/* <div className="text-center font-semibold text-lg text-zinc mb-2">{getNumberToCurrencyText(product.price)}</div>
-            <Link to={`/vehicles/${product.id}`} >
-              <button className="bg-gradient-to-r from-gray-800  to-gray text-white font-semibold py-2 px-4 rounded w-full">SEE DETAIL</button>
-            </Link> */}
             <div className="flex items-center justify-between">
                 <span className="text-base md:text-xl font-bold text-gray-900">{getNumberToCurrencyText(product.price)}</span>
                 <NavLink to={`/vehicles/${product.id}`} className="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">See Detail</NavLink>
