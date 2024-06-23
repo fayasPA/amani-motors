@@ -7,6 +7,7 @@ import Cars from './pages/StockCars/Cars';
 import SellCar from './pages/SellCar/SellCar';
 import CarDetails from './pages/CarDetail/CarDetails';
 import Gallery from './pages/Gallery/Gallery';
+import NotFoundPage from './pages/ErrorPage/NotFoundPage';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="sellcar" element={<SellCar />} />
         <Route path="gallery" element={<Gallery />} />
         <Route path="about" element={<About />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     )
   );

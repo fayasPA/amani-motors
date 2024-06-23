@@ -158,10 +158,10 @@ function Footer() {
         <div className="flex items-center space-x-2 mt-4 sm:mt-0">
         <p className="text-sm scale-90 md:scale-95">
             Designed & Developed by 
-            <a href="https://wa.me/919496715606" className="text-blue-400 ml-1" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/919496715606" className="text-blue ml-1" target="_blank" rel="noopener noreferrer">
               Fayas
             </a> & 
-            <a href="https://wa.me/919037146943" className="text-blue-400 ml-1" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/919037146943" className="text-blue ml-1" target="_blank" rel="noopener noreferrer">
               Almas
             </a>
           </p>
