@@ -233,11 +233,64 @@ const About = () => {
 
         </div>
 
-        {/* Rest of your content */}
-        
-        <div className="h-36 mt-10  achievement">
+        <div className="flex flex-col text-center text-black justify-start content-gsap-trigger">
+          <p className="font-light">Experience the</p>
+          <h2 className="text-lg md:text-xl font-bold content-text">
+            AMANI MOTORS DIFFERENCE
+          </h2>
+        </div>
+        <div className="text-black flex justify-start pl-5">
+          <h2 className="text-lg font-medium content-text">Our Forte</h2>
+        </div>
+
+        <div className="text-black flex">
+          <ul className="text-gray pl-14 list-disc text-sm content-text">
+            <li>No Accidental Cars</li>
+            <li>No Odometer Tampered</li>
+            <li>No Hidden Cost</li>
+            <li>No Processing Fee</li>
+          </ul>
+        </div>
+
+        <div className="text-black flex justify-start pl-5 pt-5">
+          <h2 className="text-lg font-medium content-text">Our Vision</h2>
+        </div>
+
+        <div className="text-black flex">
+          <p className="text-gray pl-14 list-disc text-sm content-text">
+            Our Mission is to simply be the best in every area of our business.
+            We will accomplish this by providing the most exceptional customer
+            experience, being the best place to work, and strongly supporting
+            our community, all while working together
+          </p>
+        </div>
+
+        <div
+          className="h-36 mt-10  achievement"
+          style={{
+            backgroundImage:
+              "url(/assets/images/about_us/user_count_bg.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
           <div className="flex h-full">
-            {/* Achievement content */}
+            <div className="w-1/3 h-full flex flex-col justify-center items-center">
+              <span className="font-bold text-lg md:text-2xl">250+</span>
+              <h3 className="font-thin text-xs md:text-lg">
+                Exclusive Variant
+              </h3>
+            </div>
+            <div className="w-1/3 h-full flex flex-col justify-center items-center">
+              <span className="font-bold text-lg md:text-2xl">50+</span>
+              <h3 className="font-thin text-xs md:text-lg">
+                Luxury Car Brands
+              </h3>
+            </div>
+            <div className="w-1/3 h-full flex flex-col justify-center items-center">
+              <span className="font-bold text-lg md:text-2xl">2500+</span>
+              <h3 className="font-thin text-xs md:text-lg">Happy Clients</h3>
+            </div>
           </div>
         </div>
 
