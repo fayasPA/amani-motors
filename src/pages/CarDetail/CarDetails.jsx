@@ -98,7 +98,7 @@ const CarDetails = () => {
                                 </div>
                                 <div className="flex items-center gap-2 justify-center">
                                     <LuFuel size={15} className='text-gray' />
-                                    <span className='text-gray font-medium'>{data.fuel_type}</span>
+                                    <span className='text-gray font-medium'>{capitalizeFirstLetters(data.fuel_type)}</span>
                                 </div>
                                 <div className="flex items-center gap-2 justify-center">
                                     <IoSpeedometerOutline size={15} className='text-gray' />
@@ -149,11 +149,11 @@ const CarDetails = () => {
                                     <li className="text-xs md:text-base"><span className='font-semibold'>Year Of Manufacture:</span> {data.year}</li>
                                     <li className="text-xs md:text-base"><span className='font-semibold'>Engine Size:</span> {data.engine_size?? 'N/A'}</li>
                                     <li className="text-xs md:text-base"><span className='font-semibold'>Color:</span> {data.color?? 'N/A'}</li>
-                                    <li className="text-xs md:text-base"><span className='font-semibold'>Engine Type:</span> {data.fuel_type ?? 'N/A'}</li>
+                                    <li className="text-xs md:text-base"><span className='font-semibold'>Engine Type:</span> {capitalizeFirstLetters(data.fuel_type) ?? 'N/A'}</li>
                                     <li className="text-xs md:text-base"><span className='font-semibold'>Ownership:</span> {data.ownership ?? 'N/A'}</li>
                                     <li className="text-xs md:text-base"><span className='font-semibold'>Insurance Date:</span> {data.insurance_dating ?? 'N/A'}</li>
                                     <li className="text-xs md:text-base"><span className='font-semibold'>Transmission:</span> {data.transmission ?? 'N/A'}</li>
-                                    <li className="text-xs md:text-base"><span className='font-semibold'>Status:</span> {data.status}</li>
+                                    <li className="text-xs md:text-base"><span className='font-semibold'>Status:</span> {capitalizeFirstLetters(data.status)}</li>
                                 </ul>
                                 <a href={`tel:${phoneNumber}`} id="call-button">
                                     <button className="bg-gradient-to-r from-gray-800  to-gray text-white my-5 font-semibold py-2 px-4 rounded w-full flex gap-5 justify-center items-center"
