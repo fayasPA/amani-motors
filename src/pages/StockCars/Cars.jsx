@@ -18,7 +18,7 @@ const Cars = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const filters = {
-    brand: params.get('brand'),
+    brand_id: params.get('brand_id'),
     car_type: params.get('car_type'),
     fuel_type: params.get('fuel_type'),
     min_price: params.get('min_price') && parseInt(params.get('min_price')),
@@ -27,7 +27,7 @@ const Cars = () => {
 
   const hasFilters = Object.values(filters).some(filter => filter !== null && filter !== '');
   const filterProps = {
-    ...(filters.brand && { brandSel: filters.brand }),
+    ...(filters.brand_id && { brandSel: filters.brand_id }),
     ...(filters.fuel_type && { fuelTypeSel: filters.fuel_type }),
     ...(filters.car_type && { carTypeSel: filters.car_type }),
     ...(filters.min_price && { minPriceSel: filters.min_price }),
@@ -76,6 +76,7 @@ const Cars = () => {
   async function get_all_vehicles() {
     try {
       const params = new URLSearchParams(location.search);
+      console.log('PARAMS=', params.get('brand_id'),params.get('min_price'),params.get('max_price'))
       const response = await axiosInstance.get(GET_ALL_VEHICLES, { params });
       if (response.status === 200) {
         setData(response.data.vehicles);
