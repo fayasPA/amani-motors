@@ -35,7 +35,7 @@ function FilterSearch({ brandSel = null, fuelTypeSel = null, carTypeSel = null, 
 
   const handleFilter = () => {
     const query = new URLSearchParams({
-      brand: selectedBrand,
+      brand_id: selectedBrand,
       car_type: selectedCarType,
       fuel_type: selectedFuelType,
       min_price: priceRange[0],

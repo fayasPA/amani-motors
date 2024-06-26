@@ -60,7 +60,7 @@ const CarDetails = () => {
                         <div className="lg:col-span-3 lg:row-end-1">
                             <div className="lg:flex lg:items-start">
                                 <div className="lg:order-2 lg:ml-5">
-                                    <div className="max-w-xl overflow-hidden rounded-lg">
+                                    <div className="max-w-xl overflow-hidden rounded-lg ">
                                         <img className="h-full w-full max-w-full object-cover" src={selectedImage} alt="Selected" />
                                     </div>
                                 </div>
@@ -88,7 +88,7 @@ const CarDetails = () => {
 
 
                         <div className="lg:col-span-2 lg:row-span-2 lg:row-end-2">
-                            <h1 className="sm: text-2xl font-bold text-gray-900 sm:text-3xl">{capitalizeFirstLetters(data.brand)} {capitalizeFirstLetters(data.model)}</h1>
+                            <h1 className="sm: text-2xl font-bold text-gray-900 sm:text-3xl">{capitalizeFirstLetters(data.brand?.name)} {capitalizeFirstLetters(data.model)}</h1>
                             <div className="mt-3 flex select-none flex-wrap items-center gap-10">
 
                                 <div className="flex items-center gap-2 justify-center">
@@ -146,7 +146,7 @@ const CarDetails = () => {
                             <div className="mt-8 flow-root sm:mt-12">
                                 <ul className="space-y-2 columns-3 footer font-light">
                                     <li className="text-xs md:text-base"><span className='font-semibold'>Condition:</span> Used</li>
-                                    <li className="text-xs md:text-base"><span className='font-semibold'>Year Of:</span> {data.year}</li>
+                                    <li className="text-xs md:text-base"><span className='font-semibold'>Year Of Manufacture:</span> {data.year}</li>
                                     <li className="text-xs md:text-base"><span className='font-semibold'>Engine Size:</span> {data.engine_size?? 'N/A'}</li>
                                     <li className="text-xs md:text-base"><span className='font-semibold'>Color:</span> {data.color?? 'N/A'}</li>
                                     <li className="text-xs md:text-base"><span className='font-semibold'>Engine Type:</span> {data.fuel_type ?? 'N/A'}</li>

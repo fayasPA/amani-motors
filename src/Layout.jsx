@@ -20,17 +20,19 @@ const Layout = () => {
 
   return (
     <div className='flex'>
+      <ToastContainer />
       <Loader
         onExit={() => {
           setLoaded(true);
         }}
       />
       {loaded && (
-      <FloatingBtn />
+        <FloatingBtn />
       )}
-      <ToastContainer />
       <div className=' hidden md:flex w-20'>
-        <SecondHeader />
+        {loaded && (
+          <SecondHeader />
+        )}
       </div>
       <div className='flex-1'>
         <Navbar />

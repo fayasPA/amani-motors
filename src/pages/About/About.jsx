@@ -1,16 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import gsap from "gsap/gsap-core";
 import { ScrollTrigger } from "gsap/all";
 import MapComponent from "../../Components/MapComponent";
+import { Oval } from 'react-loader-spinner'; // Import the loader component
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+  const [imagesLoaded, setImagesLoaded] = useState({
+    director1: false,
+    director2: false,
+    director3: false
+  }); // State to track image loading
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
+  }, []);
 
   useEffect(() => {
-
     gsap.fromTo(
       ".aboutus",
       {
@@ -101,12 +107,21 @@ const About = () => {
         start: "top center",
         end: "bottom center",
         scrub: true,
-        // markers: true,
       },
       opacity: 1,
       y: 0,
       duration: 1
     });
+
+    // Set a timeout to simulate image loading for each director's image
+    const imageLoadTimeouts = [
+      setTimeout(() => setImagesLoaded(prevState => ({ ...prevState, director1: true })), 2000),
+      setTimeout(() => setImagesLoaded(prevState => ({ ...prevState, director2: true })), 3000),
+      setTimeout(() => setImagesLoaded(prevState => ({ ...prevState, director3: true })), 4000)
+    ];
+
+    // Clean up the timeouts to prevent memory leaks
+    return () => imageLoadTimeouts.forEach(timeout => clearTimeout(timeout));
   }, []);
 
   return (
@@ -123,52 +138,94 @@ const About = () => {
         <span>About us</span>
         <p className="text-sm font-extralight">House of used cars</p>
       </header>
+
       <div className="flex-1  py-5 bg-white h-full p-5">
         <div className="text-black flex justify-center directors">
-          <h2 className=" font-bold text-xl md:text-4xl text-black mb-8 max-xl:text-center">Directors</h2>
-          {/* <h2 className="text-lg md:text-xl font-bold">DIRECTORS</h2> */}
+          <h2 className="font-bold text-xl md:text-4xl text-black mb-8 max-xl:text-center">Directors</h2>
         </div>
         <div className="flex flex-wrap flex-col md:flex-row gap-5 md:gap-10 px-5 py-3 pb-10 w-full justify-center items-center">
-
-          <div className="max-w-sm w-full md:w-1/3 block rounded-lg bg-white shadow-[0_2px_15px_-3px_#d1d1d1,0_10px_20px_-2px_#e0e0e0]">
-            <img
-              className="rounded-t-lg"
-              src="/assets/images/about_us/rajagopal.jpeg"
-              alt="" />
+          <div className="max-w-sm w-full md:w-1/3 block justify-center rounded-lg bg-white shadow-[0_2px_15px_-3px_#d1d1d1,0_10px_20px_-2px_#e0e0e0]">
+            {!imagesLoaded.director1 ? (
+              <div className="flex justify-center py-5">
+                <Oval
+                  height={40}
+                  width={40}
+                  color="grey"
+                  visible={true}
+                  ariaLabel='oval-loading'
+                  secondaryColor="#ccc"
+                  strokeWidth={2}
+                  strokeWidthSecondary={2}
+                />
+              </div>
+            ) : (
+              <img
+                className="rounded-t-lg"
+                src="/assets/images/about_us/rajagopal.jpeg"
+                alt=""
+                onLoad={() => setImagesLoaded(prevState => ({ ...prevState, director1: true }))}
+              />
+            )}
             <div className="p-6 text-black">
-              <h5
-                className="mb-2 text-xl font-medium leading-tight text-neutral-800 ">
+              <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 ">
                 Dr. Rajeev Rajagopalan
               </h5>
-              {/* <button
-              type="button"
-              className="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-blue-600 hover:shadow-[0_8px_9px_-4px_#60a5fa,0_4px_18px_0_#93c5fd] focus:bg-blue-600 focus:shadow-[0_8px_9px_-4px_#60a5fa,0_4px_18px_0_#93c5fd] focus:outline-none focus:ring-0 active:bg-blue-700 active:shadow-[0_8px_9px_-4px_#60a5fa,0_4px_18px_0_#93c5fd] dark:shadow-[0_4px_9px_-4px_#3b82f6] dark:hover:shadow-[0_8px_9px_-4px_#93c5fd,0_4px_18px_0_#bfdbfe] dark:focus:shadow-[0_8px_9px_-4px_#93c5fd,0_4px_18px_0_#bfdbfe] dark:active:shadow-[0_8px_9px_-4px_#93c5fd,0_4px_18px_0_#bfdbfe]">
-              Button
-            </button> */}
             </div>
           </div>
 
-          <div className="max-w-sm w-full md:w-1/3 block rounded-lg bg-white shadow-[0_2px_15px_-3px_#d1d1d1,0_10px_20px_-2px_#e0e0e0] ">
-            <img
-              className="rounded-t-lg"
-              src="/assets/images/about_us/ameen_ali.jpeg"
-              alt="" />
+          <div className="max-w-sm w-full md:w-1/3 block rounded-lg bg-white shadow-[0_2px_15px_-3px_#d1d1d1,0_10px_20px_-2px_#e0e0e0]">
+            {!imagesLoaded.director2 ? (
+              <div className="flex justify-center py-5">
+              <Oval
+                height={40}
+                width={40}
+                color="grey"
+                visible={true}
+                ariaLabel='oval-loading'
+                secondaryColor="#ccc"
+                strokeWidth={2}
+                strokeWidthSecondary={2}
+              />
+            </div>
+            ) : (
+              <img
+                className="rounded-t-lg"
+                src="/assets/images/about_us/ameen_ali.jpeg"
+                alt=""
+                onLoad={() => setImagesLoaded(prevState => ({ ...prevState, director2: true }))}
+              />
+            )}
             <div className="p-6 text-black">
-              <h5
-                className="mb-2 text-xl font-medium leading-tight text-neutral-800 ">
+              <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 ">
                 Ameen Ali
               </h5>
             </div>
           </div>
 
-          <div className="max-w-sm w-full md:w-1/3 block rounded-lg bg-white shadow-[0_2px_15px_-3px_#d1d1d1,0_10px_20px_-2px_#e0e0e0] ">
-            <img
-              className="rounded-t-lg"
-              src="/assets/images/about_us/maniKutan.jpeg"
-              alt="" />
+          <div className="max-w-sm w-full md:w-1/3 block rounded-lg bg-white shadow-[0_2px_15px_-3px_#d1d1d1,0_10px_20px_-2px_#e0e0e0]">
+            {!imagesLoaded.director3 ? (
+              <div className="flex justify-center py-5">
+              <Oval
+                height={40}
+                width={40}
+                color="grey"
+                visible={true}
+                ariaLabel='oval-loading'
+                secondaryColor="#ccc"
+                strokeWidth={2}
+                strokeWidthSecondary={2}
+              />
+            </div>
+            ) : (
+              <img
+                className="rounded-t-lg"
+                src="/assets/images/about_us/maniKutan.jpeg"
+                alt=""
+                onLoad={() => setImagesLoaded(prevState => ({ ...prevState, director3: true }))}
+              />
+            )}
             <div className="p-6 text-black">
-              <h5
-                className="mb-2 text-xl font-medium leading-tight text-neutral-800 ">
+              <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 ">
                 Mani Kuttan
               </h5>
             </div>
@@ -237,9 +294,9 @@ const About = () => {
           </div>
         </div>
 
-          <div className="bg-white w-full h-80 py-5">
-            <MapComponent />
-          </div>
+        <div className="bg-white w-full h-80 py-5">
+          <MapComponent />
+        </div>
 
       </div>
     </div>

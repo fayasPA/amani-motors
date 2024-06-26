@@ -73,7 +73,7 @@ const Gallery = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
 
             {data.map((youtube, index) => (
-              <div key={index} className="h-64 md:h-80 bg-cover group rounded-3xl bg-center overflow-hidden mx-auto cursor-pointer">
+              <div key={index} className="h-64 md:h-80 bg-cover group rounded-3xl bg-center overflow-hidden mx-auto cursor-pointer flex justify-center items-center">
                 <YoutubePlayer url={youtube.video_link} />
               </div>
             ))}
