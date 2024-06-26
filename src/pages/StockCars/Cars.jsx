@@ -6,7 +6,7 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { IoSpeedometerOutline } from "react-icons/io5";
 import { LuFuel } from "react-icons/lu";
 import { FaChevronRight } from "react-icons/fa";
-import { getNumberToCurrencyText } from "../../utils/helperFunctions";
+import { capitalizeFirstLetters, getNumberToCurrencyText } from "../../utils/helperFunctions";
 import gsap from "gsap/gsap-core";
 import { ScrollTrigger } from "gsap/all";
 import FilterSearch from "../../Components/FilterSearch";
@@ -137,7 +137,7 @@ const Cars = () => {
                 </div>
                 <div className="flex items-center gap-2 justify-center">
                   <LuFuel size={15} className='text-gray' />
-                  <span className='text-gray font-medium'>petrol</span>
+                  <span className='text-gray font-medium'>{capitalizeFirstLetters(product.fuel_type)}</span>
                 </div>
                 <div className="flex items-center gap-2 justify-center">
                   <IoSpeedometerOutline size={15} className='text-gray' />

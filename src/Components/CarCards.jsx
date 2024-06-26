@@ -35,7 +35,7 @@ function CarCards() {
           <FilterSearch />
         </div>
       </div>
-      <div className='h-full flex justify-start  font-bold items-center text-xl md:text-2xl pb-10 '>NEW AND PRE OWNED LUXURY PREMIUM CARS</div>
+      <div className='h-full flex justify-start  font-bold items-center text-xl md:text-2xl pb-10 '>PRE OWNED LUXURY PREMIUM CARS</div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
         {data.map((product, index) => (
           <div key={index} className=" p-4 rounded-lg shadow-lg">
@@ -53,7 +53,7 @@ function CarCards() {
               </div>
               <div className="flex items-center gap-2 justify-center">
                 <LuFuel size={15} className='text-gray' />
-                <span className='text-gray font-medium'>petrol</span>
+                <span className='text-gray font-medium'>{capitalizeFirstLetters(product.fuel_type)}</span>
               </div>
               <div className="flex items-center gap-2 justify-center">
                 <IoSpeedometerOutline size={15} className='text-gray' />
