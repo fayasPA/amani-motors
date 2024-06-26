@@ -69,16 +69,18 @@ function SellCar() {
 
   return (
     <div className='h-auto'>
+
       <header
-        className="sellcar-header h-36 md:h-64 bg-gray-300 text-2xl font-bold flex flex-col gap-1 justify-center items-center opacity-80"
+        className="sellcar-header h-36 md:h-64 bg-gray-300 text-2xl font-bold flex flex-col justify-center items-center bg-cover bg-center"
         style={{
           backgroundImage: "url(/assets/images/sell_carImg.jpg)",
           backgroundSize: "contain",
-          backgroundPosition: "center",
         }}
       >
-        <span className='text-2xl md:text-3xl'>Sell Your Car</span>
-        <p className="text-xs md:text-sm font-normal">YOUR OLD CAR CAN EARN YOU A JACKPOT</p>
+        <div className="h-full w-full bg-black bg-opacity-50 flex flex-col justify-center items-center">
+          <span className="text-2xl md:text-3xl text-white">Sell Your Car</span>
+          <p className="text-xs md:text-sm font-light text-white">YOUR OLD CAR CAN EARN YOU A JACKPOT</p>
+        </div>
       </header>
 
       <div className="flex-1 mt-0 md:mt-10 h-80 md:h-72 p-5 "

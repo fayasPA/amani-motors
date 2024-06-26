@@ -29,13 +29,13 @@ function CarCards() {
   }
 
   return (
-    <div className="container mx-auto px-4 mt-2 md:mt-4 text-black ">
+    <div className="container mx-auto px-4 mt-2 md:mt-4 mb-5 md:mb-8 text-black ">
       <div className='h-52 md:h-44  relative w-[95%] z-30'>
         <div className='absolute top-[-20%] w-full'>
           <FilterSearch />
         </div>
       </div>
-      <div className='h-full flex justify-start  font-bold items-center text-xl md:text-2xl pb-10 '>PRE OWNED LUXURY PREMIUM CARS</div>
+      <div className='h-full flex justify-start  font-bold items-center text-xl md:text-2xl pb-2 '>PRE OWNED LUXURY PREMIUM CARS</div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
         {data.map((product, index) => (
           <div key={index} className=" p-4 rounded-lg shadow-lg">

@@ -11,7 +11,7 @@ import {
   FaHome,
   FaImage,
 } from "react-icons/fa";
-import { FaCableCar, FaHelmetSafety, FaShop } from "react-icons/fa6";
+import { FaCableCar, FaHelmetSafety, FaPeopleGroup, FaShop } from "react-icons/fa6";
 import { GiAutoRepair } from "react-icons/gi";
 import { FiPhone } from "react-icons/fi";
 
@@ -193,14 +193,26 @@ export default function Navbar() {
                   </NavLink>
                 </li>
                 <li className="sm-navbar p-3 w-full text-xs">
+                  <NavLink to='/showroom' onClick={() => handleNavClick('/showroom')} className={({ isActive }) =>`${isActive ? 'scale-110 border-x-2' : ''} flex gap-5 justify-center items-start text-center`} >
+                    <FaShop size={20} className='w-4 h-4' />
+                    <span className=" ">Showroom</span>
+                  </NavLink>
+                </li>
+                <li className="sm-navbar p-3 w-full text-xs">
                   <NavLink to='/gallery' onClick={() => handleNavClick('/gallery')} className={({ isActive }) =>`${isActive ? 'scale-110 border-x-2' : ''} flex gap-5 justify-center items-start text-center`} >
                     <FaImage size={20} className='w-4 h-4' />
                     <span className=" ">Gallery</span>
                   </NavLink>
                 </li>
                 <li className="sm-navbar p-3 w-full text-xs">
-                  <NavLink to='/about' onClick={() => handleNavClick('/about')} className={({ isActive }) =>`${isActive ? 'scale-110 border-x-2' : ''} flex gap-5 justify-center items-start text-center`} >
+                  <NavLink to='/insurance' onClick={() => handleNavClick('/insurance')} className={({ isActive }) =>`${isActive ? 'scale-110 border-x-2' : ''} flex gap-5 justify-center items-start text-center`} >
                     <FaHelmetSafety className='w-4 h-4' />
+                    <span className=" ">Insurance</span>
+                  </NavLink>
+                </li>
+                <li className="sm-navbar p-3 w-full text-xs">
+                  <NavLink to='/about' onClick={() => handleNavClick('/about')} className={({ isActive }) =>`${isActive ? 'scale-110 border-x-2' : ''} flex gap-5 justify-center items-start text-center`} >
+                    <FaPeopleGroup className='w-4 h-4' />
                     <span className=" ">About Us</span>
                   </NavLink>
                 </li>

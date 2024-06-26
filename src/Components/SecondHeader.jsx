@@ -6,7 +6,7 @@ import {
   FaHome,
   FaImage,
 } from "react-icons/fa";
-import { FaCableCar, FaHelmetSafety, FaShop } from "react-icons/fa6";
+import { FaCableCar, FaHelmetSafety, FaPeopleGroup, FaShop } from "react-icons/fa6";
 import { GiAutoRepair } from "react-icons/gi";
 import { Link, NavLink } from "react-router-dom";
 import gsap from "gsap/gsap-core";
@@ -88,7 +88,7 @@ function SecondHeader() {
           <FaCar className="text-xl " />
           <span style={{fontSize: '10px'}} className="text-center flex justify-center ">SELL CARS</span>
         </NavLink>
-        {/* <NavLink
+        <NavLink
           to="/showroom"
           className={({ isActive }) =>
             `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} sid-nav-bar-content hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
@@ -96,7 +96,7 @@ function SecondHeader() {
         >
           <FaShop className="text-xl " />
           <span style={{fontSize: '10px'}} className="text-center flex justify-center ">SHOWROOM</span>
-        </NavLink> */}
+        </NavLink>
         <NavLink
           to="/gallery"
           className={({ isActive }) =>
@@ -106,7 +106,7 @@ function SecondHeader() {
           <FaImage className="text-xl " />
           <span style={{fontSize: '10px'}} className="text-center flex justify-center ">GALLERY</span>
         </NavLink>
-        {/* <NavLink
+        <NavLink
           to="/insurance"
           className={({ isActive }) =>
             `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} sid-nav-bar-content hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
@@ -114,14 +114,14 @@ function SecondHeader() {
         >
           <FaHelmetSafety className="text-xl " />
           <span style={{fontSize: '10px'}} className="text-center flex justify-center ">INSURANCE</span>
-        </NavLink> */}
+        </NavLink>
         <NavLink
           to="/about"
           className={({ isActive }) =>
             `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} sid-nav-bar-content hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
           }
         >
-          <FaHelmetSafety className="text-xl " />
+          <FaPeopleGroup className="text-xl " />
           <span style={{fontSize: '10px'}} className="text-center flex justify-center ">ABOUT US</span>
         </NavLink>
         {/* <NavLink

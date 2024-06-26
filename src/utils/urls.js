@@ -1,4 +1,4 @@
-const development = false
+const development = true
 let urls;
 
 if (development) {

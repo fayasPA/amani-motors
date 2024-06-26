@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import YoutubePlayer from './YoutubePlayer'
-import { ScrollTrigger } from "gsap/all";
-import { gsap } from 'gsap/gsap-core';
 import { axiosAPI } from '../../utils/axiosAPI';
 import { GET_YOUTUBE_LINKS } from '../../utils/urls';
+import { Oval } from 'react-loader-spinner'; // Import the loader component
+import { ScrollTrigger } from "gsap/all";
+import { gsap } from 'gsap/gsap-core';
 gsap.registerPlugin(ScrollTrigger);
 
 const Gallery = () => {
   const axiosInstance = axiosAPI();
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     get_youtube_data();
   }, []);
@@ -20,6 +22,8 @@ const Gallery = () => {
       }
     } catch (error) {
       console.log("---------BANNER_ERROR", error);
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -56,29 +60,44 @@ const Gallery = () => {
 
   return (
     <div className='h-auto'>
+
       <header
-        className="gallery-header h-36 md:h-64 bg-gray-300 text-2xl font-bold flex flex-col gap-1 justify-center items-center opacity-80"
+        className="gallery-header h-36 md:h-64 bg-gray-300 text-2xl font-bold flex flex-col justify-center items-center bg-cover bg-center"
         style={{
-          backgroundImage: "url(/assets/images/stock_cars_header.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundImage: "url(/assets/images/stock_cars_header.jpg)"
         }}
       >
-        <span className='text-2xl md:text-3xl'>Videos & Gallery</span>
-        <p className="text-xs md:text-sm font-light">House of used cars</p>
+        <div className="h-full w-full bg-black bg-opacity-50 flex flex-col justify-center items-center">
+          <span className="text-2xl md:text-3xl text-white">Videos & Gallery</span>
+          <p className="text-xs md:text-sm font-light text-white">House of used cars</p>
+        </div>
       </header>
       <section className="py-10 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className=" font-bold text-xl md:text-4xl text-black mb-8 max-xl:text-center">Our Showcase</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
 
-            {data.map((youtube, index) => (
-              <div key={index} className="h-64 md:h-80 bg-cover group rounded-3xl bg-center overflow-hidden mx-auto cursor-pointer flex justify-center items-center">
-                <YoutubePlayer url={youtube.video_link} />
-              </div>
-            ))}
+          {loading ? ( // Show loader while loading is true
+            <div className='flex flex-row  justify-center items-center h-32 md:h-60'>
+              <Oval
+                height={50}
+                width={50}
+                color="gray"
+                visible={true}
+                ariaLabel='oval-loading'
+                secondaryColor="#ccc"
+                strokeWidth={2}
+                strokeWidthSecondary={2}
+              />
+            </div>
+          ) :
+            (<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+              {data.map((youtube, index) => (
+                <div key={index} className="h-64 md:h-80 bg-cover group rounded-3xl bg-center overflow-hidden mx-auto cursor-pointer flex justify-center items-center">
+                  <YoutubePlayer url={youtube.video_link} />
+                </div>
+              ))}
+            </div>)}
 
-          </div>
         </div>
       </section>
     </div>

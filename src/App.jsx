@@ -8,6 +8,8 @@ import SellCar from './pages/SellCar/SellCar';
 import CarDetails from './pages/CarDetail/CarDetails';
 import Gallery from './pages/Gallery/Gallery';
 import NotFoundPage from './pages/ErrorPage/NotFoundPage';
+import Showroom from './pages/Showroom/Showroom';
+import Insurance from './pages/Insurance/Insurance';
 
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
         <Route path="sellcar" element={<SellCar />} />
         <Route path="gallery" element={<Gallery />} />
         <Route path="about" element={<About />} />
+        <Route path="showroom" element={<Showroom />} />
+        <Route path="insurance" element={<Insurance />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     )
