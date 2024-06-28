@@ -11,14 +11,20 @@ const Gallery = () => {
   const axiosInstance = axiosAPI();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [totalDataCount, setTotalDataCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  
   useEffect(() => {
     get_youtube_data();
-  }, []);
+  }, [currentPage])
+
   async function get_youtube_data() {
     try {
-      const response = await axiosInstance.get(GET_YOUTUBE_LINKS);
-      if (response.status === 200) {
-        setData(response.data);
+      const response = await axiosInstance.get(`${GET_YOUTUBE_LINKS}?page=${currentPage}`);
+      if (response.status === 200 && response.data.links) {
+        // setData(response.data);
+        setData([...data, ...response.data.links]);
+        setTotalDataCount(response.data.totalCount);
       }
     } catch (error) {
       console.log("---------BANNER_ERROR", error);
@@ -57,6 +63,9 @@ const Gallery = () => {
       }
     );
   }, [])
+
+  // pagination
+
 
   return (
     <div className='h-auto'>
@@ -99,6 +108,14 @@ const Gallery = () => {
             </div>)}
 
         </div>
+        {data.length < totalDataCount && (
+          <div className="flex flex-row w-full py-5 px-10">
+            <button onClick={() => setCurrentPage(currentPage + 1)} className="w-full bg-white hover:bg-gray-700 text-gray-800 hover:text-white font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+              View More
+            </button>
+          </div>
+        )
+        }
       </section>
     </div>
 

@@ -13,8 +13,6 @@ import FilterSearch from "../../Components/FilterSearch";
 import { Oval } from 'react-loader-spinner'; // Import the loader component
 gsap.registerPlugin(ScrollTrigger);
 
-
-
 const Cars = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -38,7 +36,8 @@ const Cars = () => {
 
   const axiosInstance = axiosAPI();
   const [data, setData] = useState([]);
-  const [totalVehicleCount, setTotalVehicleCount] = useState(0);
+  const [totalDataCount, setTotalDataCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   useEffect(() => {
     window.scrollTo(0, 0);
 
@@ -72,23 +71,45 @@ const Cars = () => {
   }, [])
 
   useEffect(() => {
-    get_all_vehicles();
+    setData([])
+    setCurrentPage(1)
+    setTotalDataCount(0);
     window.scrollTo(0, 0);
   }, [location.search]);
+
+
+  useEffect(()=>{
+    if (currentPage === 1 && location.search && data.length === 0){
+      get_all_vehicles();
+    }
+  },[currentPage, location.search, data])
+
+  useEffect(() => {
+    get_all_vehicles();
+  }, [currentPage])
+
   async function get_all_vehicles() {
     try {
       const params = new URLSearchParams(location.search);
-      const response = await axiosInstance.get(GET_ALL_VEHICLES, { params });
+      const response = await axiosInstance.get(`${GET_ALL_VEHICLES}?page=${currentPage}`, { params });
       if (response.status === 200) {
-        setData(response.data.vehicles);
-        setTotalVehicleCount(response.data.total_count)
+        // setData(response.data.vehicles);
+        if(response.data.vehicles){
+          setData([...data, ...response.data.vehicles]);
+          setTotalDataCount(response.data.total_count);
+        }
       }
     } catch (error) {
-      console.log("---------BANNER_ERROR", error);
+        console.log("---------BANNER_ERROR", error);
     } finally {
       setLoading(false)
     }
   }
+
+  
+
+  // pagination
+
 
   return (
     <div className="flex-1 ">
@@ -100,7 +121,7 @@ const Cars = () => {
         }}
       >
         <div className="h-full w-full bg-black bg-opacity-50 flex flex-col justify-center items-center">
-          <span className="text-sm md:text-xl text-white">{totalVehicleCount} PRE OWNED LUXURY CARS AVAILABLE</span>
+          <span className="text-sm md:text-xl text-white">{totalDataCount} PRE OWNED LUXURY CARS AVAILABLE</span>
           <p className="text-xs md:text-sm font-light text-white">House of used cars</p>
         </div>
       </header>
@@ -141,7 +162,7 @@ const Cars = () => {
           </div>
         ) :
           (<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 pb-5">
-            {(data && data.length) > 0 ? (data.map((product, index) => (
+            {(data && data.length > 0) ? (data.map((product, index) => (
               <div key={index} className=" p-4 rounded-lg shadow-lg">
                 <NavLink to={`/vehicles/${product.id}`} >
                   <img src={`${BASE_IMAGE_URL}${product.image}`} alt={product.image} className="w-full h-48 object-cover rounded-md mb-4 transform transition-transform duration-300 hover:scale-105" />
@@ -176,7 +197,18 @@ const Cars = () => {
                 <p className="text-base md:text-lg font-semibold">No Result Found.</p>
               </div>
             )}
+
           </div>)}
+
+        {/* load more btn */}
+        {data.length < totalDataCount && (
+          <div className="flex flex-row w-full">
+            <button onClick={() => setCurrentPage(currentPage + 1)} className="w-full bg-white hover:bg-gray-700 text-gray-800 hover:text-white font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+              View More
+            </button>
+          </div>
+        )
+        }
       </div>
     </div>
   );
