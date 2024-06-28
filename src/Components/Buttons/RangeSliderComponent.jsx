@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import RangeSlider from 'react-range-slider-input';
-import 'react-range-slider-input/dist/style.css';
 import '../../assets/styles/rangeSliderStyle.css'
 import { getNumberToCurrencyText } from "../../utils/helperFunctions";
 

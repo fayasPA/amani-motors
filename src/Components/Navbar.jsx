@@ -211,6 +211,12 @@ export default function Navbar() {
                   </NavLink>
                 </li>
                 <li className="sm-navbar p-3 w-full text-xs">
+                  <NavLink to='/emi-calculator' onClick={() => handleNavClick('/emi-calculator')} className={({ isActive }) =>`${isActive ? 'scale-110 border-x-2' : ''} flex gap-5 justify-center items-start text-center`} >
+                    <FaHelmetSafety className='w-4 h-4' />
+                    <span className=" ">EMI Calculator</span>
+                  </NavLink>
+                </li>
+                <li className="sm-navbar p-3 w-full text-xs">
                   <NavLink to='/about' onClick={() => handleNavClick('/about')} className={({ isActive }) =>`${isActive ? 'scale-110 border-x-2' : ''} flex gap-5 justify-center items-start text-center`} >
                     <FaPeopleGroup className='w-4 h-4' />
                     <span className=" ">About Us</span>

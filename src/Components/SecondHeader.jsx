@@ -116,16 +116,7 @@ function SecondHeader() {
           <span style={{fontSize: '10px'}} className="text-center flex justify-center ">INSURANCE</span>
         </NavLink>
         <NavLink
-          to="/about"
-          className={({ isActive }) =>
-            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} sid-nav-bar-content hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
-          }
-        >
-          <FaPeopleGroup className="text-xl " />
-          <span style={{fontSize: '10px'}} className="text-center flex justify-center ">ABOUT US</span>
-        </NavLink>
-        {/* <NavLink
-          to="/emi"
+          to="/emi-calculator"
           className={({ isActive }) =>
             `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} sid-nav-bar-content hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
           }
@@ -134,7 +125,16 @@ function SecondHeader() {
           <span style={{fontSize: '10px'}} className="text-center flex flex-col justify-center items-center ">
             EMI<p>CALCULATOR</p>
           </span>
-        </NavLink> */}
+        </NavLink>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            `${isActive ? 'bg-zinc text-white' : 'text-gray-500'} sid-nav-bar-content hover:text-white px-1 py-2 hover:bg-zinc h-full flex flex-col gap-1 justify-center items-center`
+          }
+        >
+          <FaPeopleGroup className="text-xl " />
+          <span style={{fontSize: '10px'}} className="text-center flex justify-center ">ABOUT US</span>
+        </NavLink>
       </div>
     </div>
   );

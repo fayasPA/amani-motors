@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
 import FloatingBtn from './Components/FloatingBtn'
 import Loader from './Components/Loader'
+import 'react-range-slider-input/dist/style.css';
 
 const Layout = () => {
   const [loaded, setLoaded] = useState(false);
@@ -21,16 +22,16 @@ const Layout = () => {
   return (
     <div className='flex'>
       <ToastContainer />
-      <Loader
+      {/* <Loader
         onExit={() => {
           setLoaded(true);
         }}
-      />
+      /> */}
       {loaded && (
         <FloatingBtn />
       )}
       <div className=' hidden md:flex w-20'>
-        {loaded && (
+        {!loaded && (
           <SecondHeader />
         )}
       </div>
