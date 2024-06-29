@@ -27,7 +27,7 @@ const YoutubePlayer = ({url}) => {
   return (
     <div className='w-full h-full relative'>
     {loading && ( // Show loader while loading is true
-          <div className='absolute right-[41%] top-[41%] '>
+          <div className='absolute flex w-full h-full justify-center items-center '>
             <Oval
                     height={50}
                     width={50}

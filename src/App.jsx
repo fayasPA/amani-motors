@@ -8,6 +8,9 @@ import SellCar from './pages/SellCar/SellCar';
 import CarDetails from './pages/CarDetail/CarDetails';
 import Gallery from './pages/Gallery/Gallery';
 import NotFoundPage from './pages/ErrorPage/NotFoundPage';
+import Showroom from './pages/Showroom/Showroom';
+import Insurance from './pages/Insurance/Insurance';
+import Calculator from './pages/Calculator/Calculator';
 
 
 function App() {
@@ -21,7 +24,10 @@ function App() {
           <Route path=":carId/*" element={<CarDetails />} />
         </Route>
         <Route path="sellcar" element={<SellCar />} />
+        <Route path="showroom" element={<Showroom />} />
         <Route path="gallery" element={<Gallery />} />
+        <Route path="insurance" element={<Insurance />} />
+        <Route path="emi-calculator" element={<Calculator />} />
         <Route path="about" element={<About />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>

@@ -127,16 +127,17 @@ const About = () => {
   return (
     <div className="h-auto about-section">
 
+
       <header
-        className="aboutus h-36 md:h-64 bg-gray-300 text-2xl font-bold flex flex-col gap-1 justify-center items-center opacity-80"
+        className="aboutus h-36 md:h-64 bg-gray-300 text-2xl font-bold flex flex-col justify-center items-center bg-cover bg-center"
         style={{
-          backgroundImage: "url(/assets/images/about_us/aboutUsBg2.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundImage: "url(/assets/images/about_us/aboutUsBg2.jpg)"
         }}
       >
-        <span>About us</span>
-        <p className="text-sm font-extralight">House of used cars</p>
+        <div className="h-full w-full bg-black bg-opacity-50 flex flex-col justify-center items-center">
+          <span className="text-2xl md:text-3xl text-white">About us</span>
+          <p className="text-xs md:text-sm font-light text-white">House of used cars</p>
+        </div>
       </header>
 
       <div className="flex-1  py-5 bg-white h-full p-5">
@@ -176,17 +177,17 @@ const About = () => {
           <div className="max-w-sm w-full md:w-1/3 block rounded-lg bg-white shadow-[0_2px_15px_-3px_#d1d1d1,0_10px_20px_-2px_#e0e0e0]">
             {!imagesLoaded.director2 ? (
               <div className="flex justify-center py-5">
-              <Oval
-                height={40}
-                width={40}
-                color="grey"
-                visible={true}
-                ariaLabel='oval-loading'
-                secondaryColor="#ccc"
-                strokeWidth={2}
-                strokeWidthSecondary={2}
-              />
-            </div>
+                <Oval
+                  height={40}
+                  width={40}
+                  color="grey"
+                  visible={true}
+                  ariaLabel='oval-loading'
+                  secondaryColor="#ccc"
+                  strokeWidth={2}
+                  strokeWidthSecondary={2}
+                />
+              </div>
             ) : (
               <img
                 className="rounded-t-lg"
@@ -205,17 +206,17 @@ const About = () => {
           <div className="max-w-sm w-full md:w-1/3 block rounded-lg bg-white shadow-[0_2px_15px_-3px_#d1d1d1,0_10px_20px_-2px_#e0e0e0]">
             {!imagesLoaded.director3 ? (
               <div className="flex justify-center py-5">
-              <Oval
-                height={40}
-                width={40}
-                color="grey"
-                visible={true}
-                ariaLabel='oval-loading'
-                secondaryColor="#ccc"
-                strokeWidth={2}
-                strokeWidthSecondary={2}
-              />
-            </div>
+                <Oval
+                  height={40}
+                  width={40}
+                  color="grey"
+                  visible={true}
+                  ariaLabel='oval-loading'
+                  secondaryColor="#ccc"
+                  strokeWidth={2}
+                  strokeWidthSecondary={2}
+                />
+              </div>
             ) : (
               <img
                 className="rounded-t-lg"

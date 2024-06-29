@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
 import FloatingBtn from './Components/FloatingBtn'
 import Loader from './Components/Loader'
+import 'react-range-slider-input/dist/style.css';
 
 const Layout = () => {
   const [loaded, setLoaded] = useState(false);
