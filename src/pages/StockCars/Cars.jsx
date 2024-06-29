@@ -71,29 +71,42 @@ const Cars = () => {
   }, [])
 
   useEffect(() => {
-    setData([])
     setCurrentPage(1)
-    setTotalDataCount(0);
-    window.scrollTo(0, 0);
-  }, [location.search]);
-
-
-  useEffect(()=>{
-    if (currentPage === 1 && location.search && data.length === 0){
-      get_all_vehicles();
-    }
-  },[currentPage, location.search, data])
+    get_all_vehicles();
+  }, [location.search])
 
   useEffect(() => {
-    get_all_vehicles();
+    if (currentPage > 1){
+      load_more_vehicles();
+    }
   }, [currentPage])
 
   async function get_all_vehicles() {
     try {
       const params = new URLSearchParams(location.search);
+      const response = await axiosInstance.get(`${GET_ALL_VEHICLES}`, { params });
+      if (response.status === 200) {
+        if(response.data.vehicles){
+          setData(response.data.vehicles);
+          setTotalDataCount(response.data.total_count);
+        } else{
+          setData([])
+          setTotalDataCount(0)
+        }
+      }
+    } catch (error) {
+        console.log("---------BANNER_ERROR", error);
+    } finally {
+      setLoading(false)
+    window.scrollTo(0, 0);
+    }
+  }
+
+  async function load_more_vehicles() {
+    try {
+      const params = new URLSearchParams(location.search);
       const response = await axiosInstance.get(`${GET_ALL_VEHICLES}?page=${currentPage}`, { params });
       if (response.status === 200) {
-        // setData(response.data.vehicles);
         if(response.data.vehicles){
           setData([...data, ...response.data.vehicles]);
           setTotalDataCount(response.data.total_count);
@@ -105,8 +118,6 @@ const Cars = () => {
       setLoading(false)
     }
   }
-
-  
 
   // pagination
 
