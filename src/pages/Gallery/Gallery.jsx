@@ -42,7 +42,6 @@ const Gallery = () => {
   async function get_star_deliveries() {
     try {
       const response = await axiosInstance.get(`${GET_STAR_DELIVERIES}`);
-      console.log('delivery', response.data.images)
       if (response.status === 200 && response.data.images) {
         setImgData(response.data.images);
         setTotalImgDataCount(response.data.totalCount);
