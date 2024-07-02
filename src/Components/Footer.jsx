@@ -50,9 +50,9 @@ function Footer() {
   }, []);
 
   return (
-    <div className="bg-black text-white px-10 py-5 divfooter">
+    <div className="bg-black text-white px-10 py-5 divfooter flex flex-col justify-center items-center">
 
-      <div className="flex flex-col items-center rtl:space-x-reverse w-fit mb-5 footer">
+      <div className="flex flex-col items-center rtl:space-x-reverse w-fit mb-5 footer self-start mx-0 2xl:mx-auto ">
         <img src={Logo} className="w-14 h-w-14  md:w-12 md:h-w-12 rounded-xl logo " alt=" Logo" />
         <div className='flex flex-col h-fit'>
           <span className="italic font-serif logo self-center text-base md:text-lg font-bold whitespace-nowrap">AMANI MOTORS</span>

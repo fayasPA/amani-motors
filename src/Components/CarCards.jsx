@@ -20,7 +20,7 @@ function CarCards() {
   async function get_latest_vehicles() {
     try {
       const response = await axiosInstance.get(GET_LATEST_VEHICLES);
-      if (response.status === 200) {
+      if (response.status === 200 && response.data.vehicles) {
         setData(response.data.vehicles);
       }
     } catch (error) {
