@@ -20,7 +20,7 @@ function GSAPslider() {
   async function get_banner_data() {
     try {
       const response = await axiosInstance.get(GET_BANNER_VEHICLES);
-      if (response.status === 200) {
+      if (response.status === 200 && response.data.carDetails) {
         setBannerData(response.data.carDetails);
         setCurrentIndex(0)
       }
@@ -44,8 +44,8 @@ function GSAPslider() {
       gsap.fromTo(
         `.car-${currentIndex}`,
         {
-          x: 100,
-          y: -100,
+          x: 150,
+          y: 0,
           borderRadius: "0%",
           yoyo: false,
           rotation: 0,
@@ -74,8 +74,8 @@ function GSAPslider() {
       gsap.fromTo(
         `.car-name-${currentIndex}`,
         {
-          x: 0,
-          y: -300,
+          x: -1500,
+          y: 0,
           borderRadius: "0%",
           yoyo: false,
           rotation: 0,
@@ -89,9 +89,9 @@ function GSAPslider() {
           yoyo: false,
           rotation: 0,
           borderRadius: "0%",
-          duration: 0.8,
-          ease: "bounce.out",
-          stagger: .3,
+          duration: 1,
+          ease: "circ.inOut",
+          stagger: .4,
           scale: 1,
           opacity: 1,
           // scrollTrigger: {
