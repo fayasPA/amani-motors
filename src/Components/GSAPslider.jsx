@@ -118,7 +118,7 @@ function GSAPslider() {
             <div className="w-full flex justify-start text-white text-xs md:text-sm font-extrabold name pb-2">
               <div className="w-full border-x-2 flex justify-center">
                 <div className="w-fit">
-                  <p className="text-[#fff]" style={{ fontSize: '0.7em' }}>Hatchback{capitalizeWord(banner.car_type)}</p>
+                  <p className="text-[#fff]" style={{ fontSize: '0.7em' }}>{capitalizeWord(banner.car_type)}</p>
                 </div>
               </div>
             </div>
