@@ -113,10 +113,12 @@ function GSAPslider() {
         {bannerData.map((banner, index) => (
         <div className={`w-full h-full flex justify-between ${currentIndex === index ? "block" : "hidden"}`} key={index}>
           <div className="w-1/2 h-full flex flex-col justify-center items-center gap-2 md:gap-5 pl-10 md:pl-20">
-            <div className="w-full flex justify-start text-white text-xs md:text-sm font-extrabold name">
-              <div className="w-1/2 md:w-1/3 border-x-2 flex justify-center">
+
+          <div>
+            <div className="w-full flex justify-start text-white text-xs md:text-sm font-extrabold name pb-2">
+              <div className="w-full border-x-2 flex justify-center">
                 <div className="w-fit">
-                  <p className="text-[#fff]" style={{ fontSize: '0.7em' }}>{capitalizeWord(banner.car_type)}</p>
+                  <p className="text-[#fff]" style={{ fontSize: '0.7em' }}>Hatchback{capitalizeWord(banner.car_type)}</p>
                 </div>
               </div>
             </div>
@@ -141,7 +143,10 @@ function GSAPslider() {
               </NavLink>
             </div>
           </div>
-          <div className="w-1/2 h-full flex justify-start items-center">
+
+
+          </div>
+          <div className="w-1/2 h-full flex justify-center items-center">
             <div className={`w-auto h-auto car-${index}`}>
               <img className="w-full h-auto" src={`${BASE_IMAGE_URL}${banner.bannerImage}`} alt={banner.model} />
             </div>
