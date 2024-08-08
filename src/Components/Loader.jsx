@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import Logo from "/assets/images/logo2.png";
+// import Logo from "/assets/images/logo2.png";
+import Logo from "/assets/images/new_logo.png";
 
 const Loader = ({ onExit }) => {
   const containerRef = useRef(null);
   const logoRef = useRef(null);
-  const textRef = useRef(null);
-  const subTextRef = useRef(null);
 
   useEffect(() => {
     const tl = gsap.timeline({ repeat: -1, yoyo: true });
@@ -16,24 +15,6 @@ const Loader = ({ onExit }) => {
         opacity: 1,
         ease: 'power1.inOut',
       })
-      .to(
-        textRef.current,
-        {
-          duration: 1,
-          opacity: 1,
-          ease: 'power1.inOut',
-        },
-        '-=1'
-      )
-      .to(
-        subTextRef.current,
-        {
-          duration: 1,
-          opacity: 1,
-          ease: 'power1.inOut',
-        },
-        '-=0.5'
-      );
   }, []);
 
   useEffect(() => {
@@ -61,26 +42,10 @@ const Loader = ({ onExit }) => {
         <img
           ref={logoRef}
           src={Logo}
-          className="w-20 h-20 md:w-24 md:h-24 rounded-xl"
+          className="w-24 h-12 md:w-44 md:h-24 rounded-xl"
           alt="Logo"
           style={{ opacity: 0 }} // Ensure initial opacity is 0 for GSAP animation
         />
-        <div className='flex flex-col h-fit'>
-          <span
-            ref={textRef}
-            className="italic font-serif self-center text-lg md:text-xl font-bold whitespace-nowrap"
-            style={{ opacity: 0 }} // Ensure initial opacity is 0 for GSAP animation
-          >
-            AMANI MOTORS
-          </span>
-          <p
-            ref={subTextRef}
-            style={{ fontSize: '.8em', opacity: 0 }} // Ensure initial opacity is 0 for GSAP animation
-            className="mt-[-5px] italic font-serif self-center font-thin whitespace-nowrap"
-          >
-            The Road To Luxury
-          </p>
-        </div>
       </div>
     </div>
   );
