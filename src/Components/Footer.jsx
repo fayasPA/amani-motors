@@ -12,7 +12,7 @@ import {
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
-import Logo from "/assets/images/logo2.png"
+import Logo from "/assets/images/new_logo.png"
 
 function Footer() {
   const phoneNumber = "+919037696969"
@@ -53,11 +53,7 @@ function Footer() {
     <div className="bg-black text-white px-10 py-5 divfooter flex flex-col justify-center items-center">
 
       <div className="flex flex-col items-center rtl:space-x-reverse w-fit mb-5 footer self-start mx-0 2xl:mx-auto ">
-        <img src={Logo} className="w-14 h-w-14  md:w-12 md:h-w-12 rounded-xl logo " alt=" Logo" />
-        <div className='flex flex-col h-fit'>
-          <span className="italic font-serif logo self-center text-base md:text-lg font-bold whitespace-nowrap">AMANI MOTORS</span>
-          <p style={{ fontSize: '.5em' }} className="mt-[-5px] italic font-serif logo self-center font-thin whitespace-nowrap">The Road To Luxury</p>
-        </div>
+        <img src={Logo} className="w-20 h-w-14  md:w-40 md:h-w-12 rounded-xl logo " alt=" Logo" />
       </div>
 
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">

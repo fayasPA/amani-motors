@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FaFacebook, FaInstagram, FaPhoneAlt, FaTwitter, FaYoutube, FaWhatsapp } from "react-icons/fa";
-import Logo from "/assets/images/logo2.png"
+import Logo from "/assets/images/new_logo.png"
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import gsap from "gsap/gsap-core";
 import { ScrollTrigger } from 'gsap/all';
@@ -70,11 +70,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link to="/" className="flex items-center rtl:space-x-reverse">
-          <img src={Logo} className="w-12 h-w-12  md:w-16 md:h-16 rounded-xl logo " alt=" Logo" />
-          <div className='flex flex-col'>
-          <span className="italic font-serif logo self-center text-lg md:text-2xl font-semibold whitespace-nowrap">AMANI MOTORS</span>
-          <p style={{fontSize: '.6em'}} className="italic mt-[-5px]  font-serif logo self-center font-thin whitespace-nowrap">The Road To Luxury</p>
-          </div>
+          <img src={Logo} className="w-20 h-w-12  md:w-44 md:h-20 rounded-xl logo " alt=" Logo" />
         </Link>
         {/* Logo */}
 
