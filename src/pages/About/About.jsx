@@ -163,7 +163,7 @@ const About = () => {
               </div>
             ) : (
               <img
-                className="rounded-t-lg"
+                className="rounded-t-lg h-72 md:h-96 w-full"
                 src="/assets/images/about_us/ameen_ali.jpeg"
                 alt=""
                 onLoad={() => setImagesLoaded(prevState => ({ ...prevState, director2: true }))}
@@ -172,6 +172,35 @@ const About = () => {
             <div className="p-6 text-black">
               <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 ">
                 Muhammad Ameen
+              </h5>
+            </div>
+          </div>
+
+          <div className="max-w-sm w-full md:w-1/3 block rounded-lg bg-white shadow-[0_2px_15px_-3px_#d1d1d1,0_10px_20px_-2px_#e0e0e0]">
+            {!imagesLoaded.director3 ? (
+              <div className="flex justify-center py-5">
+                <Oval
+                  height={40}
+                  width={40}
+                  color="grey"
+                  visible={true}
+                  ariaLabel='oval-loading'
+                  secondaryColor="#ccc"
+                  strokeWidth={2}
+                  strokeWidthSecondary={2}
+                />
+              </div>
+            ) : (
+              <img
+                className="rounded-t-lg h-72 md:h-96 w-full "
+                src="/assets/images/about_us/hazeem_khalid.jpeg"
+                alt=""
+                onLoad={() => setImagesLoaded(prevState => ({ ...prevState, director3: true }))}
+              />
+            )}
+            <div className="p-6 text-black">
+              <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 ">
+                Hazeem Khalid
               </h5>
             </div>
           </div>
