@@ -171,7 +171,7 @@ const About = () => {
             )}
             <div className="p-6 text-black">
               <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 ">
-                Muhammad Ameen
+                Muhammed Ameen
               </h5>
             </div>
           </div>
