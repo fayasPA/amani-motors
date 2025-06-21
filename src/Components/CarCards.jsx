@@ -40,7 +40,7 @@ function CarCards() {
         {data.map((product, index) => (
           <div key={index} className=" p-4 rounded-lg shadow-lg">
             <NavLink to={`/vehicles/${product.id}`} >
-            <img src={`${BASE_IMAGE_URL}${product.image}`} alt={product.image} className="w-full h-48 object-cover rounded-md mb-4 transform transition-transform duration-300 hover:scale-105" />
+            <img src={`${BASE_IMAGE_URL}${product.image}`} alt={product.image} className="w-full h-64 md:h-80 object-cover rounded-md mb-4 transform transition-transform duration-300 hover:scale-105" />
             </NavLink>
             <div className="text-center font-bold text-lg mb-2">
               {capitalizeFirstLetters(`${product.brand} ${product.model}`)}
